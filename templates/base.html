@@ -6,7 +6,8 @@
     <title>{% block title %} Document {% endblock %}</title>
     <!-- CSS general para todo el sitio -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Bloque para CSS específico de cada página -->
     {% block extra_css %}{% endblock %}
 </head>
