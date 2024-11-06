@@ -4,6 +4,7 @@ python3 -m venv .venv
 
 pip install Flask
 pip install requests
+pip install user-agents
 
 pip freeze > requirements.txt
 

@@ -10,26 +10,28 @@
     <!-- Bloque para CSS específico de cada página -->
     {% block extra_css %}{% endblock %}
 </head>
-
-
+    
 <body>
-    {% block nav %}
-        <ul>
-            <li><a href="/">Inicio</a></li>
-        </ul>
-    {% endblock %}
+    
+    
+    {% if is_mobile %}
+        {% include 'nav_mobile.html'%}
+    {% else %}
+        {% include 'nav_desktop.html' %}
+    {% endif %}
+
+
+
     <main>
     {% block content %}
         Contenido por default
     {% endblock %}
     </main>
     
-
-    <footer>
-        {% block footer %}
-        <p> 2024 Mi Sitio Web. Todos los derechos reservados.</p>
-        {% endblock %}
-    </footer>
+    
+    {% include 'footer.html' %}
+    
+    
 
     <!-- JavaScript general para todo el sitio -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
