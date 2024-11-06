@@ -14,10 +14,8 @@
 <body>
     
     
-    {% if is_mobile %}
-        {% include 'nav_mobile.html'%}
-    {% else %}
-        {% include 'nav_desktop.html' %}
+    {% if not is_mobile %}
+        {% include 'nav_desktop.html'%}
     {% endif %}
 
 
@@ -31,8 +29,10 @@
     
     {% include 'footer.html' %}
     
+    {% if is_mobile %}
+        {% include 'nav_mobile.html'%}
+    {% endif %}
     
-
     <!-- JavaScript general para todo el sitio -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
