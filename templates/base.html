@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Document {% endblock %}</title>
+    <!-- CSS general para todo el sitio -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Bloque para CSS específico de cada página -->
+    {% block extra_css %}{% endblock %}
+</head>
+
+
+<body>
+    {% block nav %}
+        <ul>
+            <li><a href="/">Inicio</a></li>
+        </ul>
+    {% endblock %}
+    <main>
+    {% block content %}
+        Contenido por default
+    {% endblock %}
+    </main>
+    
+
+    <footer>
+        {% block footer %}
+        <p> 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+        {% endblock %}
+    </footer>
+
+    <!-- JavaScript general para todo el sitio -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <!-- Bloque para JavaScript específico de cada página -->
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
