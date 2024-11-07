@@ -4,9 +4,11 @@ python3 -m venv .venv
 
 . .venv/bin/activate
 
-pip3 install Flask
-pip3 install requests
+pip install Flask
+pip install requests
+pip install user-agents
 
-pip3 freeze > requirements.txt
+
+pip freeze > requirements.txt
 
 
