@@ -1,0 +1,94 @@
+{%extends 'base.html' %}
+
+{% block title %}
+    Buscar producto
+{% endblock %}
+
+{% block content %}
+    <div class="container-flex-col">
+        <div class="row jc margin-b-20">
+            <div class="input-wrapper">
+                <input type="search" class="input" id="buscar" placeholder="buscar producto">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="input-icon"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                        clip-rule="evenodd"
+                    />
+                </svg>
+            </div>
+            {% include 'carrito.html' %}
+        </div>
+        <div class="row">
+            {% include 'categoria.html' %}
+            {% include 'listadoFiltrado.html' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const categorias = {{ categorias | tojson }};
+    const menus = {{ menus | tojson }};
+
+    localStorage.setItem('categorias', JSON.stringify(categorias));
+    localStorage.setItem('menus', JSON.stringify(menus));
+
+    const eliminarTildes = (texto) => { return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "") ;}
+    
+    const pushearListaFiltrada = ()  =>{
+        const filtro = document.querySelector("#buscar").value 
+        const UL = document.querySelector(".filtrado")
+        let checkboxes = document.querySelectorAll(".categoria")
+
+        const categoriasSeleccionadas = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
+        UL.innerHTML = ""
+        listaFiltrada = []
+        menusFiltrados = []
+
+        if (categoriasSeleccionadas.length === 0){
+            for (let menu in menus){
+                menusFiltrados.push(menu)
+            }
+        }
+        else{
+            menusFiltrados = categoriasSeleccionadas;
+        }
+        menusFiltrados.forEach(menu =>{
+            let lista = menus[menu];
+            lista.forEach(element => {
+                let texto = eliminarTildes(element).toLowerCase()
+                if(filtro === "" || texto.includes(filtro)){
+                    listaFiltrada.push(texto)
+                }
+            });  
+        })
+
+        listaFiltrada.forEach(item => {        
+            let LI = document.createElement('li')
+            LI.textContent = item 
+            UL.appendChild(LI)
+        })
+    }
+
+    const INPUT_SEARCH = document.querySelector("#buscar")
+
+    pushearListaFiltrada()
+
+    INPUT_SEARCH.addEventListener('input', pushearListaFiltrada)
+
+    const checkboxes = document.querySelectorAll(".categoria")
+    checkboxes.forEach(checkbox =>{
+        checkbox.addEventListener("change", () =>{
+            pushearListaFiltrada()})
+    })
+</script>
+{% endblock %}
