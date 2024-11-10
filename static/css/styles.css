@@ -35,19 +35,19 @@ ul{
     width: 100%;
 }
 
-.input-wrapper {
+.input-wrapper-bp {
     position: relative;
     width: 271px;
  }
 
- .input {
+ .input-bp {
     box-sizing: border-box;
     color: #191919;
     padding: 15px 15px 15px 35px;
     width: 100%;
   }
 
- .input-icon {
+ .input-icon-bp {
     color: #191919;
     position: absolute;
     width: 20px;
