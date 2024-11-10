@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %} Detalles del envío {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/porcesoPago.css') }}">{% endblock %}
+
+{% block content %}
+<div class="progress-bar">
+    <div class="step actual">
+        <div class="circle">1</div>
+        <p>Detalles del Envío</p>
+    </div>
+    <span class="bar"></span>
+    <div class="step">
+        <div class="circle">2</div>
+        <p>Método de Pago</p>
+    </div>
+    <span class="bar"></span>
+    <div class="step">
+        <div class="circle">3</div>
+        <p>Confirmación</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="shipping-form">
+        <form action="{{ url_for('metodoPago') }}" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" required>
+                </div>
+            </div>
+            <button type="submit" class="next-button">Siguiente</button>
+        </form>
+    </div>
+
+    <div class="summary">
+        <h2>Resumen de la Compra</h2>
+        <div class="product">
+            <p>Producto 1</p>
+            <img src=" {{ url_for('static', filename='/images/pepsi.jpeg') }}" alt="">
+            <p>$25.00</p>
+        </div>
+        <div class="product">
+            <p>Producto 2</p>
+            <img src=" {{ url_for('static', filename='/images/ensalada.jpeg') }}" alt="">
+            <p>$15.00</p>
+        </div>
+        <div class="total">
+            <p>Total:</p>
+            <p>$40.00</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
