@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'reitamregular';
+    src: url('../fonts/reitam_regular-webfont.woff2') format('woff2'),
+         url('../fonts/reitam_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    background-color: rgb(228, 65, 64);
+    font-family: 'reitamregular', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.titulo {
+    color: rgb(0, 40, 45);
+    font-size: 2.5em;
+    text-align: center;
+    display: block;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #00282d;
+}
+
+.container-principal {
+    background-color: rgb(203, 191, 168); 
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 30px;
+    max-width: 1000px;
+    min-height: 400px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#container-promos {
+    margin-top: 30px;
+}
+
+.producto-nombre {
+    font-size: 1em;  
+    font-weight: bold; 
+    color: #00282d;    
+}
+
+.card {
+    background-color: #fff;
+    border: 2px solid #00282d;
+    border-radius: 30px; 
+    padding: 15px;
+}
+
+.btn {
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-size: 1.2em;
+}
+
+.btn-control {
+    color: #ffffff; 
+    font-size: 1rem; 
+    padding: 10px 20px; 
+    border: 4px solid #4f6e59; 
+    cursor: pointer;
+    border-radius: 10px; 
+}
+
+.btn-control:focus,
+.btn-control:active {
+    outline: none;             
+    border-color: #4f6e59;      
+    box-shadow: 0 0 5px #4f6e59; 
+}
+
+.btn-control:hover {
+    background-color: #526959;
+    border-color: #556359;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+.btn-danger {
+    background-color: rgb(228, 65, 64);
+    color: #fff;
+    border: none;
+}
+
+.btn-secondary {
+    background: #6A938E;;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.col-12 {
+    padding: 10px;
+}
+
+.container-resumen {
+    background-color: rgb(228, 65, 64);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#total-precio {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000;
+}
+
+#confirmar-pedido {
+    background-color: #3B8B10;
+    color: #fff;
+    border: none;
+}
+
+#container-promos p {
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}
