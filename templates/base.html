@@ -13,26 +13,20 @@
 </head>
     
 <body>
-    
-    
-    {% if not is_mobile %}
-        {% include 'nav_desktop.html'%}
-    {% endif %}
+    <div class="container">    
+        {% if not is_mobile %}
+            {% include 'nav_desktop.html'%}
+        {% endif %}
 
-
-
-    <main>
-    {% block content %}
+        {% block content %}            
+        {% endblock %}
         
-    {% endblock %}
-    </main>
-    
-    
-    {% include 'footer.html' %}
-    
-    {% if is_mobile %}
-        {% include 'nav_mobile.html'%}
-    {% endif %}
+        {% include 'footer.html' %}
+        
+        {% if is_mobile %}
+            {% include 'nav_mobile.html'%}
+        {% endif %}
+    </div>
     
     <!-- JavaScript general para todo el sitio -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
