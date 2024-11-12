@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>About ★ PediloDespues</title>
+{% endblock %}
+
+{% block extra_css %}
+<link href="{{ url_for('static', filename='css/about-style.css') }}" rel="stylesheet" >
+{% endblock %}
+
+{% block content %}
+    <!-- Sección de Presentación -->
+    <section class="about-seccion">
+        <div class="about-header">
+            <h2>⯨About Us⯩</h2>
+            <img src="{{ url_for('static', filename='images/logoPediloDespues.png') }}" alt="Logo" class="about-logo">
+        </div>
+        <div class="about-presentacion">
+            <p>Somos un restaurante familiar que ha innovado para que disfrutes de nuestros platillos de una manera moderna y conveniente. 
+                Hemos creado una aplicación web y móvil que permite a nuestros clientes realizar pedidos en línea, simplificando el acceso a nuestros deliciosos platos desde la comodidad de su hogar. 
+                ¡Con PediloDespues, aprovecha nuestras irresistibles promociones y disfruta de una experiencia única!</p>
+        </div> 
+    </section>
+
+        <!-- Sección de Preguntas -->
+        <section class="questions-section">
+            <div class="questions-container">
+                <div class="question-box box-1">
+                    <h3>Objetivo</h3>
+                    <p>Nuestro objetivo es brindar una experiencia de pedidos en línea fácil y accesible para nuestros clientes, mejorando la rapidez y eficiencia en la entrega de nuestras comidas.</p>
+                </div>
+                <div class="question-box box-2">
+                    <h3>Cómo funciona</h3>
+                    <p>A través de nuestra plataforma, puedes seleccionar tus platos favoritos, realizar el pago y recibir tu comida en la puerta de tu casa.</p>
+                </div>
+                <div class="question-box box-3">
+                    <h3>Equipo</h3>
+                    <p>Contamos con un equipo dedicado de chefs, repartidores y personal de atención al cliente comprometidos con la excelencia.</p>
+                </div>
+            </div>
+        </section>
+{% endblock %}

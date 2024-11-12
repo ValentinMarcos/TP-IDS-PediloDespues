@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- CSS general para todo el sitio -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bloque para CSS específico de cada página -->
+    {% block extra_css %}{% endblock %}
+</head>
+    
+<body>
+    <div class="container">    
+        {% if not is_mobile %}
+            {% include 'nav_desktop.html'%}
+        {% endif %}
+
+        {% block content %}            
+        {% endblock %}
+        
+        {% include 'footer.html' %}
+        
+        {% if is_mobile %}
+            {% include 'nav_mobile.html'%}
+        {% endif %}
+    </div>
+    
+    <!-- JavaScript general para todo el sitio -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <!-- Bloque para JavaScript específico de cada página -->
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
