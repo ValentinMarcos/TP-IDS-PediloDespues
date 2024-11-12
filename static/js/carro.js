@@ -1,3 +1,8 @@
+/*localStorage.setItem('carrito', JSON.stringify([
+    { id: 1, nombre: 'Costillas de cerdo a la Riojana', precio: 15, cantidad: 2 },
+    { id: 4, nombre: 'Milanesa con papas fritas', precio: 20, cantidad: 1 },
+]));*/
+
 function cargarCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
