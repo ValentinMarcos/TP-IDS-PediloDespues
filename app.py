@@ -1,4 +1,5 @@
-from flask import Flask, request, redirect, render_template, url_for
+from flask import Flask, render_template, url_for, redirect, request
+from user_agents import parse
 import json
 
 app = Flask(__name__)
@@ -7,12 +8,6 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("home.html")
-
-
-@app.route("/buscarProducto")
-def buscarProducto():
-    return render_template("buscarproducto.html")
-
 
 @app.route("/seguimiento")
 def seguimiento():
@@ -60,4 +55,4 @@ def compraRealizada():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True)
