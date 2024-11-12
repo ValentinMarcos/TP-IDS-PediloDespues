@@ -22,12 +22,15 @@
             menusFiltrados = categoriasSeleccionadas;
         }
         menusFiltrados.forEach(menu =>{
-            let lista = menus[menu];
-            lista.forEach(element => {
-                let texto = eliminarTildes(element).toLowerCase()
-                if(filtro === "" || texto.includes(filtro)){
-                    listaFiltrada.push(texto)
+            let lista = menus[menu]; // [ {} {} {} {} ... {}]
+            lista.forEach(elemento => {
+                for( const k in elemento){
+                    let texto = eliminarTildes(k).toLowerCase()
+                    if(filtro === "" || texto.includes(filtro)){
+                        listaFiltrada.push(texto)
+                    }
                 }
+                
             });  
         })
 
