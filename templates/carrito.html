@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Carrito ★ PediloDespues</title>
+{% endblock %}
+
+{% block extra_css %}
+<link href="{{ url_for('static', filename='css/carrito-style.css')}}" rel="stylesheet" >
+{% endblock %}
+
+{% block content %}
+    <div class="container-principal my-4">
+        <h1 class="titulo">Carrito de Pedidos</h1>
+        <div id="container-promos" class="row">
+            <!-- Promos del carrito acá -->
+        </div>
+        <div class="container-resumen mt-4">
+            <h4>Total: $<span id="total-precio">0.00</span></h4>
+            <button id="confirmar-pedido" class="btn btn-success">Confirmar</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/carro.js') }}"></script>
+{% endblock %}
