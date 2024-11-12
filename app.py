@@ -86,11 +86,11 @@ def confirmarCompra():
 def compraRealizada():
     return render_template("compraRealizada.html")
 
-@app.route('/compraRealizada/<id>')
+""" @app.route('/compraRealizada/<id>')
 def compraRealizada(id):
     user_agent = parse(request.headers.get('User-Agent'))
     is_mobile = user_agent.is_mobile  
-    return render_template("compraRealizada.html", is_mobile=is_mobile, id=id)
+    return render_template("compraRealizada.html", is_mobile=is_mobile, id=id) """
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1",port=5000,debug=True)
