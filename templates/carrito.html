@@ -1,14 +1,12 @@
-{% extends "base.html" %}
-
-{% block title %}
-<title>Carrito ★ PediloDespues</title>
-{% endblock %}
-
-{% block extra_css %}
-<link href="{{ url_for('static', filename='css/carrito-style.css')}}" rel="stylesheet" >
-{% endblock %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito ★ PediloDespues</title>
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" >
+</head>
+<body>
     <div class="container-principal my-4">
         <h1 class="titulo">Carrito de Pedidos</h1>
         <div id="container-promos" class="row">
@@ -19,8 +17,7 @@
             <button id="confirmar-pedido" class="btn btn-success">Confirmar</button>
         </div>
     </div>
-{% endblock %}
 
-{% block extra_js %}
-<script src="{{ url_for('static', filename='js/carro.js') }}"></script>
-{% endblock %}
+    <script src="{{ url_for('static', filename='js/carro.js') }}"></script>
+</body>
+</html>
