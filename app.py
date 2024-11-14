@@ -23,17 +23,17 @@ def home():
     return render_template("home.html", is_mobile=is_mobile, promo_images=promo_images)
 
 @app.route('/buscarProducto')
-def buscar_producto():
+def buscarProducto():
     user_agent = parse(request.headers.get('User-Agent'))
     is_mobile = user_agent.is_mobile 
     menus = {
-        "bebidas": [{items:"images/"+ ''.join(items.lower().split(' ')) + ".jpeg"} for items in ["Coca Cola", "Vino Tinto", "Agua Mineral", "Jugo de Naranja", "Gaseosa", "Cafe Expresso"]],
+        "bebidas": [{items:"static/images/"+ ''.join(items.lower().split(' ')) + ".jpg"} for items in ["Coca Cola", "Vino Tinto", "Agua Mineral", "Jugo de Naranja", "Gaseosa", "Cafe Expresso"]],
 
-        "pollo": [{items:"images/"+ ''.join(items.lower().split(' ')) + ".jpeg"} for items in ["Pollo al champignon", "Pollo al horno", "Milanesa de pollo", "Pollo al espiedo", "Pollo frito"]],
+        "pollo": [{items:"static/images/"+ ''.join(items.lower().split(' ')) + ".jpg"} for items in ["Pollo al champignon", "Pollo al horno", "Milanesa de pollo", "Pollo al espiedo", "Pollo frito"]],
         
-        "acompañamientos": [{items:"images/"+ ''.join(items.lower().split(' ')) + ".jpeg"} for items in ["Papas fritas", "Pure de papas", "Ensalada mixta", "Aros de cebolla"]],
+        "acompañamientos": [{items:"static/images/"+ ''.join(items.lower().split(' ')) + ".jpg"} for items in ["Papas fritas", "Pure de papas", "Ensalada mixta", "Aros de cebolla"]],
         
-        "postres": [{items:"images/"+ ''.join(items.lower().split(' ')) + ".jpeg"} for items in ["Flan", "Brownie", "Cheesecake", "Tiramisu", "Helado"]],
+        "postres": [{items:"static/images/"+ ''.join(items.lower().split(' ')) + ".jpg"} for items in ["Flan", "Brownie", "Cheesecake", "Tiramisu", "Helado"]],
     }
 
     categorias = [categoria for categoria in menus ]

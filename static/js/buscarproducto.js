@@ -2,7 +2,7 @@
     
     const pushearListaFiltrada = ()  =>{
         const filtro = document.querySelector("#buscar").value 
-        const UL = document.querySelector(".filtrado")
+        const UL = document.querySelector(".lista-filtrada-ul")
         let checkboxes = document.querySelectorAll(".categoria")
 
         const categoriasSeleccionadas = Array.from(checkboxes)
@@ -27,16 +27,33 @@
                 for( const k in elemento){
                     let texto = eliminarTildes(k).toLowerCase()
                     if(filtro === "" || texto.includes(filtro)){
-                        listaFiltrada.push(texto)
+                        listaFiltrada.push(elemento)
                     }
                 }
                 
             });  
         })
 
-        listaFiltrada.forEach(item => {        
+        listaFiltrada.forEach(elemento => {       
+            let IMG = document.createElement('img')
             let LI = document.createElement('li')
-            LI.textContent = item 
+            let Titulo = document.createElement('h3')
+            let Precio = document.createElement('h2')
+            let BtonAdd = document.createElement('button')
+            for(const k in elemento){
+                IMG.src = elemento[k]
+                IMG.className = "lista-filtrada-img"
+                LI.dataset.descripcion = k
+                LI.className = "lista-filtrada-li"
+                Titulo.innerHTML = k 
+                Precio.innerHTML = "$8000"
+                BtonAdd.innerHTML = 'Comprar'
+                BtonAdd.className = 'lista-filtrada-btn-add-carrito'
+            }
+            LI.appendChild(IMG)
+            LI.appendChild(Titulo)
+            LI.appendChild(Precio)
+            LI.appendChild(BtonAdd)
             UL.appendChild(LI)
         })
     }
