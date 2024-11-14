@@ -37,16 +37,18 @@
         listaFiltrada.forEach(elemento => {       
             let IMG = document.createElement('img')
             let LI = document.createElement('li')
-            let Titulo = document.createElement('h3')
-            let Precio = document.createElement('h2')
+            let Titulo = document.createElement('h2')
+            let Precio = document.createElement('p')
             let BtonAdd = document.createElement('button')
             for(const k in elemento){
                 IMG.src = elemento[k]
                 IMG.className = "lista-filtrada-img"
                 LI.dataset.descripcion = k
                 LI.className = "lista-filtrada-li"
-                Titulo.innerHTML = k 
+                Titulo.innerHTML = k
+                Titulo.className = "lista-filtrada-titulo" 
                 Precio.innerHTML = "$8000"
+                Precio.className = "lista-filtrada-precio"
                 BtonAdd.innerHTML = 'Comprar'
                 BtonAdd.className = 'lista-filtrada-btn-add-carrito'
             }

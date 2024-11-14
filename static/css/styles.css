@@ -1,3 +1,48 @@
+/* esto es de jordan */
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bree+Serif&family=Dancing+Script:wght@400..700&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Funnel+Display:wght@300..800&display=swap');
+
+:root{
+    /* paleta de colores */
+
+    --clr-uno: #CBBFA8; 
+    --clr-tres: #63440a; 
+    --clr-dos: #00282D;
+    --clr-cuatro: #f1ece3;
+    --clr-cinco: #000;
+
+
+    /* Font family */
+    --pc-ff-titulos: "Amatic SC", sans-serif;
+    --pc-ff-texto: "Abel", arial;
+    --pc-ff-precios: "Abel", arial;
+
+    /* Font size PC */
+    --pc-fs-titulos: 120px;
+    --pc-fs-subtitulos: 32px;
+    --pc-fs-texto: 25px;
+    --pc-fs-precios: 35px;
+    --pc-fs-nav: 25px;
+
+    /*Font size TABLET*/
+
+    --tl-fs-titulos: 67px;
+    --tl-fs-subtitulos: 25px;
+    --tl-fs-texto: 20px;
+    --tl-fs-precios: 32px;
+    --tl-fs-nav: 25px;
+
+    /*Font size MOBILE*/
+    --mb-fs-titulos: 37px;
+    --mb-fs-subtitulos: 20px;
+    --mb-fs-texto: 15px;
+    --mb-fs-precios: 25px;
+    --mb-fs-nav: 20px;
+}
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 body {
@@ -32,7 +77,8 @@ ul {
 
 .input-wrapper-bp {
     position: relative;
-    width: 271px;
+    width: 230px;
+    margin-right: 10px;
 }
 
 .input-bp {
@@ -40,6 +86,7 @@ ul {
     color: #191919;
     padding: 15px 15px 15px 35px;
     width: 100%;
+
 }
 
 .input-icon-bp {
@@ -179,7 +226,6 @@ ul {
     box-sizing: border-box;
     width: 250px;
     border-radius: 16px;
-    border: 1px solid #333;
 
     display: flex;
     flex-direction: column;
@@ -187,19 +233,51 @@ ul {
 
     overflow: hidden;
 
+    background-color: var(--clr-uno);
+
+    box-shadow: 0 0 5px -1px var(--clr-cinco);
+
 }
 
 .lista-filtrada-btn-add-carrito{
-    border-radius: 16px;
-    background-color: #e55f12;
-    color: #b0e438;
-    height: 50px;
-    width: 100px;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding:10px 25px;
+    background-color: var(--clr-cuatro);
+    color: var(--clr-dos);
+    font-size: var(--pc-fs-texto);
+    border: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 20px;
 }
 
 .lista-filtrada-img{
     width: 100%;
     height: 200px;
 }
+
+.lista-filtrada-titulo{
+    font-family: var(--pc-ff-titulos);
+    font-size: var(--pc-fs-subtitulos);
+    color: var(--clr-dos);
+}
+
+.lista-filtrada-precio{
+    font-family: var(--pc-ff-precios);
+    font-size: var(--pc-fs-precios);
+    font-weight: bold;
+    color: var(--clr-cuatro);
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.nav-desktop-container{
+    width: 100%;
+}
+
+.categoria-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
