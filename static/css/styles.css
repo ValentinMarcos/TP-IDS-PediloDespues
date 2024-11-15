@@ -250,6 +250,11 @@ ul {
     border-radius: 20px;
 }
 
+.lista-filtrada-btn-add-carrito:hover{
+    background-color: var(--clr-dos);
+    color: var(--clr-cuatro);
+}
+
 .lista-filtrada-img{
     width: 100%;
     height: 200px;

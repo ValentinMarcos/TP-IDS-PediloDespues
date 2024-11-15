@@ -1,6 +1,8 @@
     const eliminarTildes = (texto) => { return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "") ;}
     
     const pushearListaFiltrada = ()  =>{
+        let carr = JSON.parse(localStorage.getItem('carrito')) || []
+        localStorage.setItem('carrito', JSON.stringify(carr))
         const filtro = document.querySelector("#buscar").value 
         const UL = document.querySelector(".lista-filtrada-ul")
         let checkboxes = document.querySelectorAll(".categoria")
@@ -24,13 +26,16 @@
         menusFiltrados.forEach(menu =>{
             let lista = menus[menu]; // [ {} {} {} {} ... {}]
             lista.forEach(elemento => {
-                for( const k in elemento){
-                    let texto = eliminarTildes(k).toLowerCase()
-                    if(filtro === "" || texto.includes(filtro)){
-                        listaFiltrada.push(elemento)
-                    }
+                // for( const k in elemento){
+                //     let texto = eliminarTildes(k).toLowerCase()
+                //     if(filtro === "" || texto.includes(filtro)){
+                //         listaFiltrada.push(elemento)
+                //     }
+                // }
+                let texto = eliminarTildes(elemento.nombre).toLowerCase()
+                if (filtro === "" || texto.includes(filtro)){
+                    listaFiltrada.push(elemento)
                 }
-                
             });  
         })
 
@@ -40,23 +45,32 @@
             let Titulo = document.createElement('h2')
             let Precio = document.createElement('p')
             let BtonAdd = document.createElement('button')
-            for(const k in elemento){
-                IMG.src = elemento[k]
-                IMG.className = "lista-filtrada-img"
-                LI.dataset.descripcion = k
-                LI.className = "lista-filtrada-li"
-                Titulo.innerHTML = k
-                Titulo.className = "lista-filtrada-titulo" 
-                Precio.innerHTML = "$8000"
-                Precio.className = "lista-filtrada-precio"
-                BtonAdd.innerHTML = 'Comprar'
-                BtonAdd.className = 'lista-filtrada-btn-add-carrito'
-            }
+
+            IMG.src = elemento.img
+            IMG.className = "lista-filtrada-img"
+            LI.dataset.descripcion = elemento.nombre
+            LI.className = "lista-filtrada-li"
+            Titulo.innerHTML = elemento.nombre
+            Titulo.className = "lista-filtrada-titulo" 
+            Precio.innerHTML = "$"+ parseFloat(elemento.precio)
+            Precio.className = "lista-filtrada-precio"
+            BtonAdd.innerHTML = 'Comprar'
+            BtonAdd.className = 'lista-filtrada-btn-add-carrito'
+
+
             LI.appendChild(IMG)
             LI.appendChild(Titulo)
             LI.appendChild(Precio)
             LI.appendChild(BtonAdd)
             UL.appendChild(LI)
+
+            BtonAdd.addEventListener("click", () =>{
+                console.log("hizo click")
+                let carrito = JSON.parse(localStorage.getItem('carrito'))
+                elemento.cantidad = 1
+                carrito.push(elemento)
+                localStorage.setItem('carrito', JSON.stringify(carrito))
+            })
         })
     }
 
