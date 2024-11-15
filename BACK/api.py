@@ -1,4 +1,5 @@
 import uuid
+from flask import Flask, render_template, url_for, redirect, request
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
@@ -17,6 +18,9 @@ QUERY_VER_TICKETS = "SELECT * FROM Tickets"
 
 engine = create_engine("mysql+mysqlconnector://root:12345678@localhost:3306/proyecto")
 
+app = Flask(__name__)
+
+
 def run_query(query, parameters=None):
     try:
         with engine.connect() as conn:
@@ -27,11 +31,13 @@ def run_query(query, parameters=None):
         print(f"Error en la consulta: {e}")
         return None
 
+@app.route("/")
 def ver_productos():
     result = run_query(QUERY_VER_PRODUCTOS)
     if result:
         return result.fetchall()
     return []
+
 
 def agregar_producto(data):
     result = run_query(QUERY_AGREGAR_PRODUCTO, data)
