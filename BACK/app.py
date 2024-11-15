@@ -9,17 +9,35 @@ QUERY_PRODUCTO_BY_ID = "SELECT Descripcion, Precio, Categoria FROM Productos WHE
 
 QUERY_AGREGAR_PRODUCTO = "INSERT INTO Productos (Descripcion, Precio, Categoria) VALUES (:Descripcion, :Precio, :Categoria)"
 
-def run_query(query, parameters =None):
-    with engine.connect() as conn:
-        result = conn.execute(text(query), parameters)
-        conn.commit()
-    return result
+engine = create_engine("mysql+mysqlconnector://root:12345678@localhost:3306/proyecto")
+
+def run_query(query, parameters=None):
+    try:
+        with engine.connect() as conn:
+            result = conn.execute(text(query), parameters)
+            conn.commit()  
+            return result
+    except SQLAlchemyError as e:
+        print(f"Error en la consulta: {e}")
+        return None
 
 def ver_productos():
-    return run_query(QUERY_VER_PRODUCTOS).fetchall()
+    result = run_query(QUERY_VER_PRODUCTOS)
+    if result:
+        return result.fetchall()
+    return []
 
 def agregar_producto(data):
-    return run_query(QUERY_AGREGAR_PRODUCTO, data)
+    result = run_query(QUERY_AGREGAR_PRODUCTO, data)
+    if result:
+        return result.rowcount
+    return 0
 
 def producto_by_id(Descripcion):
-    return run_query(QUERY_PRODUCTO_BY_ID, {'Descripcion': Descripcion}).fetchall()
+    result = run_query(QUERY_PRODUCTO_BY_ID, {'Descripcion': Descripcion})
+    if result:
+        return result.fetchall()
+    return []
+
+if __name__ == "__main__":
+    print(ver_productos())
