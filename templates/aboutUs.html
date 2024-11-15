@@ -5,7 +5,7 @@ About ★ PediloDespues
 {% endblock %}
 
 {% block extra_css %}
-<link href="{{ url_for('static', filename='css/about-style.css') }}" rel="stylesheet" >
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@ About ★ PediloDespues
     <section class="about-seccion">
         <div class="about-header">
             <h2>⯨About Us⯩</h2>
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="about-logo">
+            <img src="{{ url_for('static', filename='images/logos/logo-header.png') }}" alt="Logo" class="about-logo">
         </div>
         <div class="about-presentacion">
             <p>Somos un restaurante familiar que ha innovado para que disfrutes de nuestros platillos de una manera moderna y conveniente. 
@@ -26,15 +26,15 @@ About ★ PediloDespues
         <section class="questions-section">
             <div class="questions-container">
                 <div class="question-box box-1">
-                    <h3>Objetivo</h3>
+                    <h3>OBJETIVO</h3>
                     <p>Nuestro objetivo es brindar una experiencia de pedidos en línea fácil y accesible para nuestros clientes, mejorando la rapidez y eficiencia en la entrega de nuestras comidas.</p>
                 </div>
                 <div class="question-box box-2">
-                    <h3>Cómo funciona</h3>
+                    <h3>CÓMO FUNCIONA</h3>
                     <p>A través de nuestra plataforma, puedes seleccionar tus platos favoritos, realizar el pago y recibir tu comida en la puerta de tu casa.</p>
                 </div>
                 <div class="question-box box-3">
-                    <h3>Equipo</h3>
+                    <h3>EQUIPO</h3>
                     <p>Contamos con un equipo dedicado de chefs, repartidores y personal de atención al cliente comprometidos con la excelencia.</p>
                     <!--Nombres de los miembros del Equipo-->
                     <div class="team-container">

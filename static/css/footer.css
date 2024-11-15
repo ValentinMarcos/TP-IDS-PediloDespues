@@ -1,0 +1,92 @@
+/* ======= Sección de Estilos para Footer ======= */
+
+footer {
+    background-color: rgb(203, 191, 168);
+    padding: 1rem 2rem;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgb(0, 40, 45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Alineacíon de la estructura del footer*/
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-g1h0 {
+    width: 100%; 
+    padding: 0 15px;
+}
+
+.g1h0-footer-links {
+    list-style: none;  
+    padding: 0;       
+    margin: 0 0 1rem 0; 
+    flex-direction: column;
+    flex-grow: 1;
+}     
+
+.g1h0-footer-links li {
+    margin-bottom: 20px;
+}
+
+.g1h0-footer-links a {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+/* Iconos */
+ul.g1h0-social-icons {
+    list-style-type: none;
+    padding: 0;    
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    margin-top: 1rem;
+}
+
+    /*Diseño de iconos*/
+ul.g1h0-social-icons li i {
+    font-size: 2rem;
+    color: rgb(0, 40, 45);
+}
+
+/*Título "Contáctanos"*/
+.g1h0-widget h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(0, 40, 45);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgb(0, 40, 45);
+    padding-bottom: 0.5rem;
+}
+
+/* Créditos al final del pie de la página */
+#copy-right {
+    background-color: rgb(0, 40, 45);
+    color: rgba(203, 191, 168, 0.767);
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.copy-right-sec {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.copy-right-sec a {
+    color: var(--clr-siete);
+    text-decoration: none;
+}

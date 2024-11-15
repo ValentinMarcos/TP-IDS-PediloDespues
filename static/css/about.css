@@ -1,0 +1,130 @@
+/* ======= Sección de Estilos para About US ======= */
+
+/* Estilos para la sección About */
+.about-seccion {
+    background-color: var(--clr-seis);
+    color: var(--clr-cuatro);
+    padding: 40px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.about-header h2 {
+    font-family: var(--pc-ff-titulos);
+    font-size: var(--pc-fs-titulos);
+    color: var(--clr-cuatro);
+}
+
+.about-logo {
+    width: 400px;
+    height: auto;
+}
+
+.about-presentacion {
+    max-width: 800px;
+    font-size: var(--pc-fs-subtitulos);
+    font-family: var(--pc-ff-texto);
+    margin-top: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Preguntas */
+.questions-section {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--clr-dos);
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.questions-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    width: 100%; 
+    align-items: center;
+}
+
+.question-box {
+    width: 90%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(203, 191, 168, 0.185);
+    margin-bottom: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.question-box h3 {
+    font-size: var(--pc-fs-subtitulos);
+    font-family: var(--pc-ff-titulos);
+    color: var(--clr-cuatro);
+    margin-bottom: 10px;
+}
+
+.question-box p {
+    font-size: var(--pc-fs-texto);
+    font-family: var(--pc-ff-texto);
+    color: var(--clr-cuatro);
+    line-height: 1.2;
+}
+
+/* Equipo */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;  
+    gap: 10px;  
+}
+
+.team-member {
+    font-size: var(--pc-fs-texto);
+    font-family: var(--pc-ff-texto);
+    font-weight: bold;
+    color: var(--clr-siete);
+    padding: 5px;
+    background-color: var(--clr-seis);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* Colores específicos por box */
+.box-1 {
+    background-color: var(--clr-nueve);
+}
+
+.box-2 {
+    background-color: var(--clr-diez);
+}
+
+.box-3 {
+    background-color: var(--clr-doce);
+}
+
+/*Tamaño para TABLET/MOBILE a modificar*/
+
+@media (max-width: 768px) {
+    .questions-section {
+        padding: 20px; 
+    }
+    .question-box {
+        padding: 15px; 
+        font-size: var(--tl-fs-texto); 
+    }
+}

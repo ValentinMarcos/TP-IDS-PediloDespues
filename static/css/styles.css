@@ -1,4 +1,4 @@
-/* esto es de jordan */
+/* esto es de Jordan */
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bree+Serif&family=Dancing+Script:wght@400..700&family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Funnel+Display:wght@300..800&display=swap');
@@ -11,6 +11,13 @@
     --clr-dos: #00282D;
     --clr-cuatro: #f1ece3;
     --clr-cinco: #000;
+    --clr-seis: #d32f2f;
+    --clr-siete: #cbbfa8c4;
+    --clr-ocho: #191919;
+    --clr-nueve: #3c8c11a1;
+    --clr-diez: #6b3d19b2;
+    --clr-doce: #e3c100a6;
+    --clr-trece: #6A938E ;
 
 
     /* Font family */
@@ -41,20 +48,22 @@
     --mb-fs-nav: 20px;
 }
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-=======
-/* FONT H1 principal de la página para TÍTULOS */
+
+/* FONTS */
 @font-face {
     font-family: 'reitamregular';
-    src: url('../fonts/reitam_regular-webfont.woff2') format('woff2'),
-         url('../fonts/reitam_regular-webfont.woff') format('woff');
+    src: url('../fonts/reitam/Reitam Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-/* FONT Subtítulos */
+@font-face {
+    font-family: 'reitamitalic';
+    src: url('../fonts/reitam/Reitam Regular-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
 
 /* Estructura de la Base */
 
@@ -66,6 +75,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 /*Tamaño de Pantalla*/
 .container {
@@ -226,6 +236,8 @@ ul {
     color: black
 }
 
+/*Diseño respecto listadoFiltrado.html*/
+
 .lista-filtrada-ul{
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
@@ -298,140 +310,15 @@ ul {
     align-items: center;
 }
 
-
-=======
-/* ABOUT US - DESIGN*/
-
-/* Estilos para la sección About */
-.about-seccion {
-    background-color: #d32f2f;
-    color: rgb(255, 255, 255);
-    padding: 40px 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.about-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.about-header h2 {
-    font-size: 2.8em;
-    color: #ffffff;
-}
-
-.about-logo {
-    width: 400px;
-    height: auto;
-}
-
-.about-presentacion {
-    max-width: 800px;
-    font-size: 1.2em;
-    margin-top: 20px;
-    line-height: 1.5;
-    text-align: center;
-}
-
-/* Preguntas */
-.questions-section {
-    width: 100%;
-    max-width: 1200px;
-    background-color: rgb(0, 40, 45);
-    padding: 40px 20px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.questions-container {
-    display: flex;
-    flex-direction: column; 
-    gap: 20px;
-    width: 100%; 
-    align-items: center;
-}
-
-.question-box {
-    width: 90%;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(203, 191, 168, 0.185);
-    margin-bottom: 20px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    box-sizing: border-box;
-}
-
-.question-box h3 {
-    font-size: 1.8em;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.question-box p {
-    font-size: 1.1em;
-    color: #ffffff;
-    line-height: 1.5;
-}
-
-/* Equipo */
-.team-container {
-    display: flex;
-    flex-wrap: wrap;  
-    gap: 10px;  
-}
-
-.team-member {
-    font-size: 16px;
-    color: rgb(0, 40, 45);
-    padding: 5px;
-    background-color: rgb(228, 65, 64);
-    border-radius: 4px;
-    white-space: nowrap;
-}
-
-/* Colores específicos por box */
-.box-1 {
-    background-color: #3c8c11a1;
-}
-
-.box-2 {
-    background-color: #6b3d19b2;
-}
-
-.box-3 {
-    background-color: #e3c100a6;
-}
-
-@media (max-width: 768px) {
-    .questions-section {
-        padding: 20px; 
-    }
-    .question-box {
-        padding: 15px; 
-        font-size: 1em; 
-    }
-}
-
-/* FOOTER - DESIGN*/
+/* ======= Sección de Estilos para Footer ======= */
 
 footer {
-    background-color: rgb(203, 191, 168);
+    background-color: var(--clr-uno);
     padding: 1rem 2rem;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-    color: rgb(0, 40, 45);
+    color: var(--clr-dos);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -451,6 +338,8 @@ footer {
 }
 
 .g1h0-footer-links {
+    font-family: var(--pc-ff-texto);
+    font-weight: bold;
     list-style: none;  
     padding: 0;       
     margin: 0 0 1rem 0; 
@@ -480,25 +369,26 @@ ul.g1h0-social-icons {
     /*Diseño de iconos*/
 ul.g1h0-social-icons li i {
     font-size: 2rem;
-    color: rgb(0, 40, 45);
+    color: var(--clr-cinco);
 }
 
 /*Título "Contáctanos"*/
 .g1h0-widget h4 {
-    font-size: 1.5rem;
+    font-family: var(--pc-ff-titulos);
+    font-size: var(--pc-fs-subtitulos);
     font-weight: bold;
     color: rgb(0, 40, 45);
     margin-bottom: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 8px;
     border-bottom: 2px solid rgb(0, 40, 45);
     padding-bottom: 0.5rem;
 }
 
 /* Créditos al final del pie de la página */
 #copy-right {
-    background-color: rgb(0, 40, 45);
-    color: rgba(203, 191, 168, 0.767);
+    background-color: var(--clr-dos);
+    color: var(--clr-siete);
     padding: 10px 0;
     text-align: center;
     width: 100%;
@@ -512,6 +402,6 @@ ul.g1h0-social-icons li i {
 }
 
 .copy-right-sec a {
-    color: rgba(203, 191, 168, 0.767);
+    color: var(--clr-siete);
     text-decoration: none;
 }
