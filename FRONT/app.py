@@ -81,7 +81,8 @@ def confirmarCompra():
 
 @app.route("/compraRealizada", methods=["GET", "POST"])
 def compraRealizada():
-    return render_template("compraRealizada.html")
+    ticket_id = request.args.get("ticket_id")
+    return render_template("compraRealizada.html", ticket_id=ticket_id)
 
 @app.route("/endpointApropiado", methods=["POST"])
 def endpointApropiado():

@@ -47,7 +47,7 @@ def producto_by_id(Descripcion):
 
 def agregar_ticket(total, carrito, estado = "Pendiente"):
     payload = str(carrito)
-    ticket_id = str(uuid.uuid4())
+    ticket_id = (uuid.uuid4())
     fecha_creacion = datetime.now()
     params = {
         'ID': ticket_id,
