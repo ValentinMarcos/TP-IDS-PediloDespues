@@ -1,0 +1,283 @@
+/* esto es de jordan */
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bree+Serif&family=Dancing+Script:wght@400..700&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Funnel+Display:wght@300..800&display=swap');
+
+:root{
+    /* paleta de colores */
+
+    --clr-uno: #CBBFA8; 
+    --clr-tres: #63440a; 
+    --clr-dos: #00282D;
+    --clr-cuatro: #f1ece3;
+    --clr-cinco: #000;
+
+
+    /* Font family */
+    --pc-ff-titulos: "Amatic SC", sans-serif;
+    --pc-ff-texto: "Abel", arial;
+    --pc-ff-precios: "Abel", arial;
+
+    /* Font size PC */
+    --pc-fs-titulos: 120px;
+    --pc-fs-subtitulos: 32px;
+    --pc-fs-texto: 25px;
+    --pc-fs-precios: 35px;
+    --pc-fs-nav: 25px;
+
+    /*Font size TABLET*/
+
+    --tl-fs-titulos: 67px;
+    --tl-fs-subtitulos: 25px;
+    --tl-fs-texto: 20px;
+    --tl-fs-precios: 32px;
+    --tl-fs-nav: 25px;
+
+    /*Font size MOBILE*/
+    --mb-fs-titulos: 37px;
+    --mb-fs-subtitulos: 20px;
+    --mb-fs-texto: 15px;
+    --mb-fs-precios: 25px;
+    --mb-fs-nav: 20px;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+.categoria-max-w-300 {
+    max-width: 300px;
+    width: 100%;
+    padding: 0;
+}
+
+.container-flex-col {
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    width: 100%;
+}
+
+.input-wrapper-bp {
+    position: relative;
+    width: 230px;
+    margin-right: 10px;
+}
+
+.input-bp {
+    box-sizing: border-box;
+    color: #191919;
+    padding: 15px 15px 15px 35px;
+    width: 100%;
+
+}
+
+.input-icon-bp {
+    color: #191919;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    max-width: 1024px;
+    width: 100%;
+}
+
+.margin-b-20 {
+    margin-bottom: 20px;
+}
+
+.jc {
+    justify-content: space-around;
+}
+
+.header {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ccc0a9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header img {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 15px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    align-items: center;
+    background-color: #ccc0a9;
+}
+
+.navbar ul {
+    flex: 1;
+    text-align: right;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.mobile-navbar {
+    margin: 0;
+    display: block;
+    color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc0a9;
+}
+
+.mobile-navbar i {
+    font-size: 5vmin;
+    cursor: pointer;
+}
+
+.mobile-navbar a {
+    flex: 1;
+    text-align: center;
+    font-size: 6vmin;
+    color: black;
+}
+
+.mobile-navbar a i {
+    display: block;
+    color: black;
+    padding: 0 5px;
+}
+
+.mobile-navbar li:hover i {
+    color: black
+}
+
+
+.lista-filtrada-ul{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
+  gap: 10px; /* Espacio entre los elementos de la cuadrícula */
+  list-style-type: none; /* Elimina los puntos de la lista */
+  padding: 0;
+  margin: 0;
+}
+
+.lista-filtrada-li{
+    box-sizing: border-box;
+    width: 250px;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-color: var(--clr-uno);
+
+    box-shadow: 0 0 5px -1px var(--clr-cinco);
+
+}
+
+.lista-filtrada-btn-add-carrito{
+    padding:10px 25px;
+    background-color: var(--clr-cuatro);
+    color: var(--clr-dos);
+    font-size: var(--pc-fs-texto);
+    border: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.lista-filtrada-img{
+    width: 100%;
+    height: 200px;
+}
+
+.lista-filtrada-titulo{
+    font-family: var(--pc-ff-titulos);
+    font-size: var(--pc-fs-subtitulos);
+    color: var(--clr-dos);
+}
+
+.lista-filtrada-precio{
+    font-family: var(--pc-ff-precios);
+    font-size: var(--pc-fs-precios);
+    font-weight: bold;
+    color: var(--clr-cuatro);
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.nav-desktop-container{
+    width: 100%;
+}
+
+.categoria-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+

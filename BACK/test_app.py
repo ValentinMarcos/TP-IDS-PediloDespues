@@ -1,4 +1,4 @@
-from app import ver_productos, agregar_producto, producto_by_id
+from BACK.app import ver_productos, agregar_producto, producto_by_id
 
 def test_ver_productos():
     productos = ver_productos()

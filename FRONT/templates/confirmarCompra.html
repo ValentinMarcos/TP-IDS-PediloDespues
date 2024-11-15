@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %} Detalles del envío {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/procesoPago.css') }}">{% endblock %}
+
+{% block content %}
+<div class="progress-bar">
+    <div class="step completed">
+        <div class="circle">1</div>
+        <p>Detalles del Envío</p>
+    </div>
+    <span class="bar"></span>
+    <div class="step completed">
+        <div class="circle">2</div>
+        <p>Método de Pago</p>
+    </div>
+    <span class="bar"></span>
+    <div class="step actual">
+        <div class="circle">3</div>
+        <p>Confirmación</p>
+    </div>
+</div>
+
+<div class="container-pago">
+    <div class="informacion">
+        <h2>Confirmación de Pago</h2>
+
+        <div class="info-section">
+            <h3>Detalles de Envío</h3>
+            <p><strong>Nombre Completo:</strong> {{ detallesEnvio['nombre'] }} {{ detallesEnvio['apellido'] }} </p>
+            <p><strong>Dirección:</strong> {{ detallesEnvio['direccion'] }}</p>
+            <p><strong>Email:</strong> {{ detallesEnvio['email'] }} </p>
+            <p><strong>Teléfono:</strong> {{ detallesEnvio['telefono'] }} </p>
+            <p><strong>DNI:</strong> {{ detallesEnvio['dni'] }} </p>
+        </div>
+        <div class="info-section">
+            <h3>Método de Pago</h3>
+            <p><strong>Tarjeta de Crédito/Debito:</strong> {{ metodoPago['numero'] }}</p>
+            <p><strong>Fecha de Vencimiento:</strong> {{ metodoPago['mes'] }}/{{ metodoPago['año'] }}</p>
+            <p><strong>Titular de la tarjeta:</strong> {{ metodoPago['titular'] }} </p>
+            <p><strong>DNI del titular:</strong> {{ metodoPago['dni'] }} </p>
+        </div>
+        <form action="{{ url_for('endpointApropiado') }}" method="post">
+            <input type="hidden" name="detallesEnvio" value='{{ detallesEnvio | tojson | safe }}'>
+            <input type="hidden" name="metodoPago" value='{{ metodoPago | tojson | safe }}'>
+            <input type="hidden" id="carritoInput" name="carrito" value="">
+            <div class="confirm-button">
+                <button type="submit" class="next-button">Finalizar Compra</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="summary">
+        <h2>Resumen de la Compra</h2>
+        <div class="product">
+            <p>Producto 1</p>
+            <img src=" {{ url_for('static', filename='/images/pepsi.jpeg') }}" alt="">
+            <p>$25.00</p>
+        </div>
+        <div class="product">
+            <p>Producto 2</p>
+            <img src=" {{ url_for('static', filename='/images/ensalada.jpeg') }}" alt="">
+            <p>$15.00</p>
+        </div>
+        <div class="total">
+            <p>Total:</p>
+            <p>$40.00</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
+{% endblock %}

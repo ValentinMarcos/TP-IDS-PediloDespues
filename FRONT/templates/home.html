@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1>Home</h1>
+    <p>Este es el contenido de la página de inicio</p>
+
+    <h2>Últimas promociones</h2>
+    <div class="promos">
+        {% for promo in promo_images %}
+            <div class="promo">
+                <img src="{{ url_for('static', filename=promo) }}" alt="Promo">
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        .promos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .promo {
+            flex: 1 1 calc(25% - 20px);
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .promo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .promo:hover {
+            transform: scale(1.05);
+        }
+    </style>
+{% endblock %}
