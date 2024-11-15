@@ -1,1 +1,25 @@
-{% extends 'base.html' %}
+{%extends 'base.html' %}
+
+{% block title %}
+    Buscar producto
+{% endblock %}
+
+{% block content %}
+    <div class="container-flex-col">
+        <div class="row">
+            {% include 'categoria.html' %}
+            {% include 'listadoFiltrado.html' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const categorias = {{ categorias | tojson }};
+    const menus = {{ menus | tojson }};
+
+    localStorage.setItem('categorias', JSON.stringify(categorias));
+    localStorage.setItem('menus', JSON.stringify(menus));
+</script>
+<script src="{{url_for('static', filename='js/buscarproducto.js')}}"></script>
+{% endblock %}

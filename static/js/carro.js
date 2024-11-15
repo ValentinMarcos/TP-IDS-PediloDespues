@@ -62,4 +62,11 @@ function cambiarCantidad(index, cantidad) {
     cargarCarrito();
 }
 
+const BTON_VACIAR_CARRITO = document.querySelector('.carrito-btn-vaciar')
+
+BTON_VACIAR_CARRITO.addEventListener("click", () =>{
+    localStorage.setItem('carrito', JSON.stringify([]))
+    cargarCarrito()
+})
+
 cargarCarrito();
