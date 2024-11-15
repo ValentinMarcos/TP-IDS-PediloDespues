@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>About ★ PediloDespues</title>
+About ★ PediloDespues
 {% endblock %}
 
 {% block extra_css %}
@@ -13,7 +13,7 @@
     <section class="about-seccion">
         <div class="about-header">
             <h2>⯨About Us⯩</h2>
-            <img src="{{ url_for('static', filename='images/logoPediloDespues.png') }}" alt="Logo" class="about-logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="about-logo">
         </div>
         <div class="about-presentacion">
             <p>Somos un restaurante familiar que ha innovado para que disfrutes de nuestros platillos de una manera moderna y conveniente. 
@@ -36,6 +36,16 @@
                 <div class="question-box box-3">
                     <h3>Equipo</h3>
                     <p>Contamos con un equipo dedicado de chefs, repartidores y personal de atención al cliente comprometidos con la excelencia.</p>
+                    <!--Nombres de los miembros del Equipo-->
+                    <div class="team-container">
+                        <div class="team-member">Karel Luna</div>
+                        <div class="team-member">Agustin Beltrame</div>
+                        <div class="team-member">Leonel Rodrigo Rolon</div>
+                        <div class="team-member">Jordan Ticona</div>
+                        <div class="team-member">Angela Alcon</div>
+                        <div class="team-member">Juan Valentin Marcos</div>
+                        <div class="team-member">Ivan Poggio</div>
+                    </div>
                 </div>
             </div>
         </section>
