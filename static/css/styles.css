@@ -1,3 +1,63 @@
+/* esto es de jordan */
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bree+Serif&family=Dancing+Script:wght@400..700&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Funnel+Display:wght@300..800&display=swap');
+
+:root{
+    /* paleta de colores */
+
+    --clr-uno: #CBBFA8; 
+    --clr-tres: #63440a; 
+    --clr-dos: #00282D;
+    --clr-cuatro: #f1ece3;
+    --clr-cinco: #000;
+
+
+    /* Font family */
+    --pc-ff-titulos: "Amatic SC", sans-serif;
+    --pc-ff-texto: "Abel", arial;
+    --pc-ff-precios: "Abel", arial;
+
+    /* Font size PC */
+    --pc-fs-titulos: 120px;
+    --pc-fs-subtitulos: 32px;
+    --pc-fs-texto: 25px;
+    --pc-fs-precios: 35px;
+    --pc-fs-nav: 25px;
+
+    /*Font size TABLET*/
+
+    --tl-fs-titulos: 67px;
+    --tl-fs-subtitulos: 25px;
+    --tl-fs-texto: 20px;
+    --tl-fs-precios: 32px;
+    --tl-fs-nav: 25px;
+
+    /*Font size MOBILE*/
+    --mb-fs-titulos: 37px;
+    --mb-fs-subtitulos: 20px;
+    --mb-fs-texto: 15px;
+    --mb-fs-precios: 25px;
+    --mb-fs-nav: 20px;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+=======
+/* FONT H1 principal de la página para TÍTULOS */
+@font-face {
+    font-family: 'reitamregular';
+    src: url('../fonts/reitam_regular-webfont.woff2') format('woff2'),
+         url('../fonts/reitam_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* FONT Subtítulos */
+
+/* Estructura de la Base */
+
 body {
     font-family: 'reitamregular', sans-serif;
     margin: 0;
@@ -164,4 +224,294 @@ ul {
 
 .mobile-navbar li:hover i {
     color: black
+}
+
+.lista-filtrada-ul{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual ancho */
+  gap: 10px; /* Espacio entre los elementos de la cuadrícula */
+  list-style-type: none; /* Elimina los puntos de la lista */
+  padding: 0;
+  margin: 0;
+}
+
+.lista-filtrada-li{
+    box-sizing: border-box;
+    width: 250px;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-color: var(--clr-uno);
+
+    box-shadow: 0 0 5px -1px var(--clr-cinco);
+
+}
+
+.lista-filtrada-btn-add-carrito{
+    padding:10px 25px;
+    background-color: var(--clr-cuatro);
+    color: var(--clr-dos);
+    font-size: var(--pc-fs-texto);
+    border: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.lista-filtrada-btn-add-carrito:hover{
+    background-color: var(--clr-dos);
+    color: var(--clr-cuatro);
+}
+
+.lista-filtrada-img{
+    width: 100%;
+    height: 200px;
+}
+
+.lista-filtrada-titulo{
+    font-family: var(--pc-ff-titulos);
+    font-size: var(--pc-fs-subtitulos);
+    color: var(--clr-dos);
+}
+
+.lista-filtrada-precio{
+    font-family: var(--pc-ff-precios);
+    font-size: var(--pc-fs-precios);
+    font-weight: bold;
+    color: var(--clr-cuatro);
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.nav-desktop-container{
+    width: 100%;
+}
+
+.categoria-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+=======
+/* ABOUT US - DESIGN*/
+
+/* Estilos para la sección About */
+.about-seccion {
+    background-color: #d32f2f;
+    color: rgb(255, 255, 255);
+    padding: 40px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.about-header h2 {
+    font-size: 2.8em;
+    color: #ffffff;
+}
+
+.about-logo {
+    width: 400px;
+    height: auto;
+}
+
+.about-presentacion {
+    max-width: 800px;
+    font-size: 1.2em;
+    margin-top: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Preguntas */
+.questions-section {
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgb(0, 40, 45);
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.questions-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    width: 100%; 
+    align-items: center;
+}
+
+.question-box {
+    width: 90%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(203, 191, 168, 0.185);
+    margin-bottom: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.question-box h3 {
+    font-size: 1.8em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.question-box p {
+    font-size: 1.1em;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+/* Equipo */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;  
+    gap: 10px;  
+}
+
+.team-member {
+    font-size: 16px;
+    color: rgb(0, 40, 45);
+    padding: 5px;
+    background-color: rgb(228, 65, 64);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* Colores específicos por box */
+.box-1 {
+    background-color: #3c8c11a1;
+}
+
+.box-2 {
+    background-color: #6b3d19b2;
+}
+
+.box-3 {
+    background-color: #e3c100a6;
+}
+
+@media (max-width: 768px) {
+    .questions-section {
+        padding: 20px; 
+    }
+    .question-box {
+        padding: 15px; 
+        font-size: 1em; 
+    }
+}
+
+/* FOOTER - DESIGN*/
+
+footer {
+    background-color: rgb(203, 191, 168);
+    padding: 1rem 2rem;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgb(0, 40, 45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Alineacíon de la estructura del footer*/
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-g1h0 {
+    width: 100%; 
+    padding: 0 15px;
+}
+
+.g1h0-footer-links {
+    list-style: none;  
+    padding: 0;       
+    margin: 0 0 1rem 0; 
+    flex-direction: column;
+    flex-grow: 1;
+}     
+
+.g1h0-footer-links li {
+    margin-bottom: 20px;
+}
+
+.g1h0-footer-links a {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+/* Iconos */
+ul.g1h0-social-icons {
+    list-style-type: none;
+    padding: 0;    
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    margin-top: 1rem;
+}
+
+    /*Diseño de iconos*/
+ul.g1h0-social-icons li i {
+    font-size: 2rem;
+    color: rgb(0, 40, 45);
+}
+
+/*Título "Contáctanos"*/
+.g1h0-widget h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(0, 40, 45);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgb(0, 40, 45);
+    padding-bottom: 0.5rem;
+}
+
+/* Créditos al final del pie de la página */
+#copy-right {
+    background-color: rgb(0, 40, 45);
+    color: rgba(203, 191, 168, 0.767);
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.copy-right-sec {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.copy-right-sec a {
+    color: rgba(203, 191, 168, 0.767);
+    text-decoration: none;
 }
