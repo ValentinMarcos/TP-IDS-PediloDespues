@@ -1,10 +1,11 @@
 import uuid
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, jsonify
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
+
 
 QUERY_VER_PRODUCTOS = "SELECT * FROM Productos"
 
@@ -31,12 +32,23 @@ def run_query(query, parameters=None):
         print(f"Error en la consulta: {e}")
         return None
 
-@app.route("/")
+@app.route("/api/VerProductos")
 def ver_productos():
-    result = run_query(QUERY_VER_PRODUCTOS)
-    if result:
-        return result.fetchall()
-    return []
+    productos = run_query(QUERY_VER_PRODUCTOS)
+    
+    if not productos:
+        return jsonify({})
+    
+    productos_por_categoria = {}
+
+    for producto in productos:
+        descripcion,precio,categoria = producto
+
+        if categoria not in productos_por_categoria:
+            productos_por_categoria[categoria] = []
+        productos_por_categoria[categoria].append({'nombre': descripcion,'precio':precio})
+    
+    return jsonify(productos_por_categoria)
 
 
 def agregar_producto(data):
