@@ -39,17 +39,26 @@ def ver_productos():
     if not productos:
         return jsonify({})
     
+   
     productos_por_categoria = {}
 
+   
     for producto in productos:
-        descripcion,precio,categoria = producto
-
+    
+        id_producto, descripcion, precio, categoria = producto 
+        
+        
         if categoria not in productos_por_categoria:
             productos_por_categoria[categoria] = []
-        productos_por_categoria[categoria].append({'nombre': descripcion,'precio':precio})
+        
+        
+        productos_por_categoria[categoria].append({
+            'nombre': descripcion,
+            'precio': precio
+        })
     
+   
     return jsonify(productos_por_categoria)
-
 
 def agregar_producto(data):
     result = run_query(QUERY_AGREGAR_PRODUCTO, data)
