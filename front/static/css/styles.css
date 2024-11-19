@@ -410,6 +410,38 @@ ul.g1h0-social-icons li i {
 }
 
 
-@media (max-width: 768px){
-    
+@media (max-width: 1000px){
+    .nav-desktop-container{
+        width: 100vw;
+    }
+    .body{
+        width: 100%;
+    }
+
+    .header{
+        flex-direction: column;
+    }
+
+    .cart-icon{
+        display: inline-block;
+        position: absolute;
+        top: 40px;
+        right: 40px
+    }
+    .fa-solid fa-cart-shopping{
+        height: 50px;
+    }
+
+    .navbar ul{
+        text-align: center;
+        display: flex;
+    }
+
+    .navbar ul li {
+        display: inline-block;
+        margin: 0px 15px
+    }
+    .navbar a {
+        font-size: 20px;
+    }
 }
