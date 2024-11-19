@@ -1,6 +1,6 @@
 localStorage.setItem('carrito', JSON.stringify([
-    { id: 1, nombre: 'Costillas de cerdo a la Riojana', precio: 15, cantidad: 2 },
-    { id: 4, nombre: 'Milanesa con papas fritas', precio: 20, cantidad: 1 },
+    { id: 1, nombre: 'Costillas de cerdo a la Riojana', imagen: 'polloalchampignon.jpg', precio: 15, cantidad: 2},
+    { id: 4, nombre: 'Milanesa con papas fritas', imagen: 'milanesadepollo.jpg', precio: 20, cantidad: 1 },
 ]));
 
 function cargarCarrito() {
@@ -16,31 +16,31 @@ function cargarCarrito() {
     }
 
     let total = 0;
+    
+
+    const ulElemento = document.createElement('ul');
+    ulElemento.classList.add('ul-box');
+    
+    carritoContenedor.appendChild(ulElemento);
 
     carrito.forEach((producto, index) => {
-        const productoElemento = document.createElement('div');
-        productoElemento.classList.add('col-12', 'mb-3');
-        productoElemento.innerHTML = `
-            <div class="card p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <h5 class="producto-nombre">${producto.nombre}</h5>
-                        <p class="producto-precio">Precio: $${producto.precio}</p>
-                        <div>
-                            <button onclick="cambiarCantidad(${index}, -1)" class="btn btn-sm btn-secondary">-</button>
-                            <span class="mx-2">${producto.cantidad}</span>
-                            <button onclick="cambiarCantidad(${index}, 1)" class="btn btn-sm btn-secondary">+</button>
-                        </div>
-                    </div>
-                    <button onclick="eliminarProducto(${index})" class="btn btn-danger">Eliminar</button>
-                </div>
-            </div>
+        const productoElemento = document.createElement('li');
+        productoElemento.classList.add('fila');
+        productoElemento.innerHTML += `
+           <span class="prod-cantidad">${producto.cantidad}</span>
+           <img src="../static/images/${producto.imagen}" class="prod-imagen" alt="producto">
+           <p class="prod-nombre">${producto.nombre}</p>
+           <button class="btn btn-dec-cantidad" onclick="cambiarCantidad(${index}, -1)">-</button>
+           <button class="btn btn-inc-cantidad" onclick="cambiarCantidad(${index}, 1)">+</button>
+           <p class="prod-precio">$${producto.precio}</p>
+           <button class="btn btn-eliminar-prod" onclick="eliminarProducto(${index})">X</button>
         `;
-
+        
         total += producto.precio * producto.cantidad;
 
-        carritoContenedor.appendChild(productoElemento);
+        ulElemento.appendChild(productoElemento);
     });
+    
 
     document.getElementById('total-precio').textContent = total.toFixed(2);
 }
