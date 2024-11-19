@@ -308,6 +308,9 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 50vh;
+    position: sticky;
+    top: 20px;
 }
 
 /* ======= Sección de Estilos para Footer ======= */
@@ -329,7 +332,7 @@ footer {
 .row {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .container-g1h0 {
@@ -404,4 +407,9 @@ ul.g1h0-social-icons li i {
 .copy-right-sec a {
     color: var(--clr-siete);
     text-decoration: none;
+}
+
+
+@media (max-width: 768px){
+    
 }
