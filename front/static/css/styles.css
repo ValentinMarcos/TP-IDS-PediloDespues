@@ -423,10 +423,9 @@ ul.g1h0-social-icons li i {
     }
 
     .cart-icon{
-        display: inline-block;
-        position: absolute;
-        top: 40px;
-        right: 40px
+        position: relative;
+        top: 0px;
+        right: 10px;
     }
     .fa-solid fa-cart-shopping{
         height: 50px;
