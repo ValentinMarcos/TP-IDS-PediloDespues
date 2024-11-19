@@ -1,7 +1,7 @@
-localStorage.setItem('carrito', JSON.stringify([
-    { id: 1, nombre: 'Costillas de cerdo a la Riojana', imagen: 'polloalchampignon.jpg', precio: 15, cantidad: 2},
-    { id: 4, nombre: 'Milanesa con papas fritas', imagen: 'milanesadepollo.jpg', precio: 20, cantidad: 1 },
-]));
+// localStorage.setItem('carrito', JSON.stringify([
+//     { id: 1, nombre: 'Costillas de cerdo a la Riojana', imagen: 'polloalchampignon.jpg', precio: 15, cantidad: 2},
+//     { id: 4, nombre: 'Milanesa con papas fritas', imagen: 'milanesadepollo.jpg', precio: 20, cantidad: 1 },
+// ]));
 
 function cargarCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -28,7 +28,7 @@ function cargarCarrito() {
         productoElemento.classList.add('fila');
         productoElemento.innerHTML += `
            <span class="prod-cantidad">${producto.cantidad}</span>
-           <img src="../static/images/${producto.imagen}" class="prod-imagen" alt="producto">
+           <img src="${producto.img}" class="prod-imagen" alt="producto">
            <p class="prod-nombre">${producto.nombre}</p>
            <button class="btn btn-dec-cantidad" onclick="cambiarCantidad(${index}, -1)">-</button>
            <button class="btn btn-inc-cantidad" onclick="cambiarCantidad(${index}, 1)">+</button>
