@@ -1,5 +1,5 @@
 <MainScreen>:
-    name: 'main_view'
+        name: 'main_view'
     canvas.before:
         Color: 
             rgba: (203/255, 191/255, 168/255, 1)
@@ -32,16 +32,65 @@
                 text: 'Código de Pedido'
                 font_size: '20pt'
                 underline: True
-                background_color: (1, 65/255, 64/255, 1)
                 size_hint_y: None
                 height: 50
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release: app.cambiar_vista()
         
             MDRaisedButton:
                 text: 'Promos con QR'
                 font_size: '20pt'
                 underline: True
-                background_color: (1, 65/255, 64/255, 1)
                 size_hint_y: None
                 height: 50 
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+<SecondScreen>:
+    name: 'second_view'
+    canvas.before:
+        Color: 
+            rgba: (203/255, 191/255, 168/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+        Image:
+            source: 'logo.png' 
+            size_hint: None, None
+            size: dp(200), dp(200) 
+            pos_hint: {'center_x': 0.5, 'top': 1}  
+            allow_stretch: True 
+
+        MDTextField:
+            hint_text: "Ingrese Código Rastreo"
+            helper_text: 'ID del Cliente'
+            helper_text_mode: 'on_focus'
+            font_size: '20pt'
+            size_hint_y: None
+            size_hint_x: None
+            width: dp(300)
+            height: 50
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            text_color: (0, 0.157, 0.176, 1)
+            line_color_normal: (0.796, 0.749, 0.659, 1)
+            line_color_focus: (0, 0.157, 0.176)
+            elevation: 0
+            multiline: False
+            on_text_validate: root.enviar_ID(self)
+        
+        MDRaisedButton:
+            text: 'Consultar'
+            font_size: '20pt'
+            underline: True
+            size_hint_y: None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.29}
+            elevation: 0
+
+        MDRaisedButton:
+            text: 'Menú Principal'
+            font_size: '20pt'
+            underline: True
+            size_hint_y: None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            elevation: 0
