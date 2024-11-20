@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container-pago">
     <div class="shipping-form">
         <form action="{{ url_for('metodoPago') }}" method="post">
             <div class="form-row">
@@ -59,22 +59,12 @@
         </form>
     </div>
 
-    <div class="summary">
-        <h2>Resumen de la Compra</h2>
-        <div class="product">
-            <p>Producto 1</p>
-            <img src=" {{ url_for('static', filename='/images/pepsi.jpeg') }}" alt="">
-            <p>$25.00</p>
-        </div>
-        <div class="product">
-            <p>Producto 2</p>
-            <img src=" {{ url_for('static', filename='/images/ensalada.jpeg') }}" alt="">
-            <p>$15.00</p>
-        </div>
-        <div class="total">
-            <p>Total:</p>
-            <p>$40.00</p>
-        </div>
+    <div id="contenedor-resumen">
     </div>
 </div>
+        
+{% endblock %}
+        
+{% block extra_js %}
+    <script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
 {% endblock %}
