@@ -1,0 +1,47 @@
+<MainScreen>:
+    name: 'main_view'
+    canvas.before:
+        Color: 
+            rgba: (203/255, 191/255, 168/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        Image:
+            source: 'logo.png' 
+            size_hint: None, None
+            size: dp(400), dp(400) 
+            pos_hint: {'center_x': 0.5}  
+            allow_stretch: True 
+
+        Label:  
+            size_hint_y: None
+            height: dp(20)
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            padding: 10
+
+            MDRaisedButton:
+                text: 'Código de Pedido'
+                font_size: '20pt'
+                underline: True
+                background_color: (1, 65/255, 64/255, 1)
+                size_hint_y: None
+                height: 50
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+            MDRaisedButton:
+                text: 'Promos con QR'
+                font_size: '20pt'
+                underline: True
+                background_color: (1, 65/255, 64/255, 1)
+                size_hint_y: None
+                height: 50 
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
