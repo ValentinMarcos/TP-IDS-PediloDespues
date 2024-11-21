@@ -14,7 +14,7 @@ function crearResumenDeCompra(carrito) {
     resumenDiv.appendChild(titulo);
     
     const resumenUl = document.createElement("ul");
-    resumenDiv.classList.add("products-summary");
+    resumenUl.classList.add("products-summary");
 
     let total = 0;
 
@@ -29,7 +29,7 @@ function crearResumenDeCompra(carrito) {
         productLi.appendChild(infoDiv);
 
         const nombre = document.createElement("p");
-        nombre.textContent = producto.nombre;
+        nombre.textContent = `${producto.nombre} $${producto.precio}`;
         infoDiv.appendChild(nombre);
 
         const cantidad = document.createElement("p");

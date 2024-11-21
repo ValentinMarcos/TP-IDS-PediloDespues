@@ -1,3 +1,5 @@
+/* Estilos para la barra de progreso */
+
 .progress-bar {
     display: flex;
     align-items: center;
@@ -44,11 +46,13 @@
     background-color: #4CAF50;
 }
 
+/* Estilos para los contenedores de formularios */
+
 .container-pago {
     display: flex;
     max-width: 980px;
     margin-right: auto;
-    margin-left: auto;
+    margin-bottom: 20px;
     gap: 20px;
 }
 
@@ -145,38 +149,6 @@ a {
     background-color: #45a049;
 }
 
-.summary {
-    flex: 1;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.summary h2 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.product {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #555;
-}
-
-.total {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 18px;
-    color: #333;
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
-    margin-top: 10px;
-}
-
 .confirmation-container {
     max-width: 600px;
     margin: 0 auto;
@@ -216,4 +188,87 @@ a {
 
 .confirm-button button:hover {
     background-color: #218838;
+}
+
+
+/* Estilos para el resumen de productos */
+
+.resumenDiv {
+    width: 100%;
+    max-width: 450px;
+    height: 450px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ccc0a9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resumenDiv h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+.products-summary {
+    max-height: 300px;
+    overflow-y: auto; 
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.productLi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 14px;
+    color: #555;
+}
+
+.productLi:last-child {
+    border-bottom: none;
+}
+
+.infoProduct p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.totalDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 2px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.totalDiv p:last-child {
+    color: black;
+}
+
+/* Estilos para la barra desplazadora */
+.products-summary::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f1f1f1;
+}
+
+.products-summary::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.products-summary::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
 }
