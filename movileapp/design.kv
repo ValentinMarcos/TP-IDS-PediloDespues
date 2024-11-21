@@ -1,5 +1,28 @@
+<CommonAssistChip@MDChip>
+    # Custom attribute.
+    text: ""
+    icon: ""
+
+    # Chip attribute.
+    type: "assist"
+    md_bg_color: '#CBBFA8FF'
+    line_color: "grey"
+    elevation: 1
+    shadow_softness: 2
+
+    MDChipLeadingIcon:
+        padding: "10dp"
+        icon: root.icon
+        theme_text_color: "Custom"
+        text_color: "#68896c"
+
+    MDChipText:
+        text: root.text
+        theme_text_color: "Custom"
+        text_color: "#e6e9df"
+
 <MainScreen>:
-        name: 'main_view'
+    name: 'main_view'
     canvas.before:
         Color: 
             rgba: (203/255, 191/255, 168/255, 1)
@@ -86,6 +109,7 @@
             size_hint_y: None
             pos_hint: {'center_x': 0.5, 'center_y': 0.29}
             elevation: 0
+            on_release: app.root.current = 'track_view'
 
         MDRaisedButton:
             text: 'Menú Principal'
@@ -94,3 +118,65 @@
             size_hint_y: None
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             elevation: 0
+
+<TrackScreen>:
+    name: 'track_view'
+    canvas.before:
+        Color: 
+            rgba: (203/255, 191/255, 168/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Image:
+            source: 'logo.png' 
+            size_hint: None, None
+            size: dp(200), dp(200) 
+            pos_hint: {'center_x': 0.5}  
+            allow_stretch: True 
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            adaptive_size: True
+            pos_hint: {"center_x": .5}
+            spacing: "12dp"
+            padding: 0, "24dp", 0, 0
+
+            CommonAssistChip:
+                text: "Autorizando"
+                icon: "check"
+
+            CommonAssistChip:
+                text: "Armando pedido"
+                icon: "truck-delivery"
+            
+            CommonAssistChip:
+                text: "Yendo para su casa"
+                icon: ""
+
+            CommonAssistChip:
+                text: "Estamos en su domicilio"
+                icon: ""
+            
+            CommonAssistChip:
+                text: "Pedido entregado"
+                icon: ""
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            padding: 10
+
+            MDRaisedButton:
+                text: 'Home'
+                font_size: '20pt'
+                underline: True
+                background_color: (1, 65/255, 64/255, 1)
+                size_hint_y: None
+                height: 50
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release: app.root.current = 'main_view'

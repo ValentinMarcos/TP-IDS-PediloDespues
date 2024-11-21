@@ -11,8 +11,11 @@ class SecondScreen(Screen):
     def enviar_ID(self, instance):
         trackeo_codigo= instance.text
         print(f'Código de rastreo ingresado: {trackeo_codigo}')
-
     pass
+
+class TrackScreen(Screen):
+    pass
+
     
 class MyApp(MDApp):
 
@@ -26,6 +29,7 @@ class MyApp(MDApp):
         
         self.sm.add_widget(MainScreen(name='main_view'))
         self.sm.add_widget(SecondScreen(name='second_view'))
+        self.sm.add_widget(TrackScreen(name='track_view'))
 
         return self.sm
 
