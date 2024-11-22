@@ -61,12 +61,13 @@
                 on_release: app.cambiar_vista()
         
             MDRaisedButton:
-                text: 'Promos con QR'
+                text: 'Promos con Código'
                 font_size: '20pt'
                 underline: True
                 size_hint_y: None
                 height: 50 
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release: app.root.current = 'promos_view'
 
 <SecondScreen>:
     name: 'second_view'
@@ -118,6 +119,7 @@
             size_hint_y: None
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             elevation: 0
+            on_release: app.root.current = 'main_view'
 
 <TrackScreen>:
     name: 'track_view'
@@ -179,3 +181,132 @@
                 height: 50
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                 on_release: app.root.current = 'main_view'
+
+<PromoScreen>:
+    name: 'promos_view'
+    canvas.before:
+        Color: 
+            rgba: (203/255, 191/255, 168/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+        Image:
+            source: 'logo.png'
+            size_hint: None, None
+            size: dp(100), dp(100)
+            pos_hint: {'center_x': 0.5, 'top': 1}
+            allow_stretch: True
+
+        MDRaisedButton:
+            text: 'Menú Principal'
+            font_size: '20pt'
+            underline: True
+            size_hint_y: None
+            height: dp(50)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            elevation: 0
+            on_release: app.root.current = 'main_view'
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: None, None
+            size: dp(300), dp(450)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            spacing: dp(10)
+
+            BoxLayout:
+                size_hint_y: None
+                height: dp(120)
+                padding: dp(10)
+                orientation: 'horizontal'
+                spacing: dp(5)
+
+                Image:
+                    source: 'promo1.png'
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                    allow_stretch: True
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 1, None
+                    height: dp(120)
+                    padding: dp(10)
+
+                    MDLabel:
+                        text: "Cupón 1: Descuento del 20%"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: dp(40)
+
+                    MDRaisedButton:
+                        text: 'Obtener Cupón'
+                        on_release: root.mostrar_cupon()
+                        size_hint_y: None
+                        height: dp(40)
+
+            BoxLayout:
+                size_hint_y: None
+                height: dp(120)
+                padding: dp(10)
+                orientation: 'horizontal'
+                spacing: dp(5)
+
+
+                Image:
+                    source: 'promo2.png'
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                    allow_stretch: True
+
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 1, None
+                    height: dp(120)
+                    padding: dp(10)
+
+                    MDLabel:
+                        text: "Cupón 2: Descuento del 15%"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: dp(40)
+
+                    MDRaisedButton:
+                        text: 'Obtener Cupón'
+                        on_release: root.mostrar_cupon()
+                        size_hint_y: None
+                        height: dp(40)
+
+            BoxLayout:
+                size_hint_y: None
+                height: dp(120)
+                padding: dp(10)
+                orientation: 'horizontal'
+                spacing: dp(5)
+
+                Image:
+                    source: 'promo3.png'
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                    allow_stretch: True
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 1, None
+                    height: dp(120)
+                    padding: dp(10)
+
+                    MDLabel:
+                        text: "Cupón 3: Descuento del 10%"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: dp(40)
+
+                    MDRaisedButton:
+                        text: 'Obtener Cupón'
+                        on_release: root.mostrar_cupon()
+                        size_hint_y: None
+                        height: dp(40)
