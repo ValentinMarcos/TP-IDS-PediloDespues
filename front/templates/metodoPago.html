@@ -24,7 +24,7 @@
 </div>
 
 <div class="container-pago">
-    <div class="pay-form">
+    <div class="pay-form general-form">
         <form action="{{ url_for('confirmarCompra') }}" method="post">
             <div class="form-group">
                 <label for="numero">Número de la tarjeta:</label>
@@ -58,9 +58,9 @@
     <div id="contenedor-resumen">
     </div>
 </div>
-        
+
 {% endblock %}
-        
+
 {% block extra_js %}
-    <script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
+<script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
 {% endblock %}
