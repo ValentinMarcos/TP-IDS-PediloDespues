@@ -24,7 +24,7 @@
 </div>
 
 <div class="container-pago">
-    <div class="informacion">
+    <div class="informacion general-form">
         <h2>Confirmación de Pago</h2>
 
         <div class="info-section">
@@ -51,9 +51,9 @@
     <div id="contenedor-resumen">
     </div>
 </div>
-        
+
 {% endblock %}
-        
+
 {% block extra_js %}
-    <script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
+<script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
 {% endblock %}

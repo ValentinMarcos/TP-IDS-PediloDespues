@@ -6,6 +6,7 @@
     justify-content: space-between;
     max-width: 980px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .step {
@@ -59,6 +60,7 @@
 .shipping-form {
     flex: 2;
     padding: 20px;
+    max-width: 615px;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -193,9 +195,13 @@ a {
 
 /* Estilos para el resumen de productos */
 
+#contenedor-resumen {
+    margin: 0 auto;
+}
+
 .resumenDiv {
     width: 100%;
-    max-width: 450px;
+    max-width: 350px;
     height: 450px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -213,7 +219,7 @@ a {
 
 .products-summary {
     max-height: 300px;
-    overflow-y: auto; 
+    overflow-y: auto;
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -271,4 +277,47 @@ a {
 
 .products-summary::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
+}
+
+/* Cambiando la disposición cuando la pantalla sea más pequeña */
+@media (max-width: 1022px) {
+    .resumenDiv {
+        width: auto;
+    }
+
+    .container-pago {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #contenedor-resumen {
+        margin: 0;
+    }
+
+    .input-row input {
+        width: 9%;
+    }
+}
+
+@media (max-width: 498px) {
+    .general-form {
+        width: 300px;
+
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 440px) {
+    .progress-bar {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 350px) {
+    .general-form {
+        width: 250px;
+    }
 }
