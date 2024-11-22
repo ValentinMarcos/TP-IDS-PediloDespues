@@ -8,7 +8,9 @@ class Query_sql:
     PRODUCTOS_ADD = "INSERT INTO Productos (Descripcion, Precio, Categoria) VALUES (:Descripcion, :Precio, :Categoria)"
     TICKET_GET_ALL = "SELECT * FROM Tickets"
     TICKET_ADD = "INSERT INTO Tickets (Total, Payload, Estado, FechaCreacion) VALUES (:Total, :Payload, :Estado, :FechaCreacion)"
-
+    TICKET_GET_STATUS = "SELECT ID, ID_TRACKEO, Estado FROM Tickets"
+    TICKET_UPDATE_STATUS = "UPDATE Tickets SET Estado = %s WHERE ID_TRACK"
+    
     def ejecutarSQL(self, query, parameters=None):
         engine = create_engine("mysql+mysqlconnector://root:12345678@localhost:3306/proyecto")
         try:
