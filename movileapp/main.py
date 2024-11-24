@@ -28,6 +28,9 @@ class SecondScreen(Screen):
 class TrackScreen(Screen):
     pass
 
+class ErrorScreen(Screen):
+    pass
+
 class PromoScreen(Screen):
     promo_data = ListProperty([])
 
@@ -76,8 +79,10 @@ class MyApp(MDApp):
         self.sm.add_widget(SecondScreen(name='second_view'))
         self.sm.add_widget(TrackScreen(name='track_view'))
         self.sm.add_widget(PromoScreen(name='promos_view'))
+        self.sm.add_widget(ErrorScreen(name='error_view'))
 
         Clock.schedule_interval(self.simular_estado, 5)
+
 
         return self.sm
 
