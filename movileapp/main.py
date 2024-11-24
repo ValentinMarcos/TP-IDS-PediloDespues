@@ -1,3 +1,4 @@
+import requests
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
@@ -28,11 +29,27 @@ class TrackScreen(Screen):
     pass
 
 class PromoScreen(Screen):
-    def mostrar_cupon(self):
+    promo_data = ListProperty([])
+
+    def on_enter(self):  # Se ejecuta al entrar en esta vista
+        self.obtener_cupones()
+
+    def obtener_cupones(self):
+        try:
+            response = requests.get("http://localhost:5001/qr")  # Llamada al endpoint
+            if response.status_code == 200:
+                self.promo_data = response.json()  # Guardar los datos en la lista
+                print(f"Datos obtenidos: {self.promo_data}")
+            else:
+                print(f"Error al obtener los datos: {response.status_code}")
+        except requests.RequestException as e:
+            print(f"Error en la conexión: {e}")
+
+    def mostrar_cupon(self, index):
         id_cliente = "cliente12"
         nombre_promo = "foodpedilodespues"
         codigo = f"{id_cliente}_{nombre_promo}"
-        hash_generado = generar_hash(codigo)
+        hash_generado = self.promo_data[index]['hash']
 
         self.dialog = MDDialog(
             title="Código de Promoción",
