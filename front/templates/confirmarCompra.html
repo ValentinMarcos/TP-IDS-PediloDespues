@@ -42,18 +42,26 @@
             <p><strong>Titular de la tarjeta:</strong> {{ metodoPago['titular'] }} </p>
             <p><strong>DNI del titular:</strong> {{ metodoPago['dni'] }} </p>
         </div>
-        <div class="confirm-button">
-            <a href="{{ url_for('compraRealizada') }}"><button type="button" class="next-button">Confirmar
-                    Compra</button></a>
-        </div>
+        <form action="{{ url_for('guardarCompra') }}" method="post">
+            <input type="hidden" name="detallesEnvio" value='{{ detallesEnvio | tojson | safe }}'>
+            <input type="hidden" name="metodoPago" value='{{ metodoPago | tojson | safe }}'>
+            <input type="hidden" id="carritoInput" name="carrito" value="">
+            <input type="hidden" id="totalInput" name="total" value="">
+            <div class="confirm-button">
+                <button type="submit" class="next-button">Finalizar Compra</button>
+            </div>
+        </form>
     </div>
 
-    <div id="contenedor-resumen">
-    </div>
+    <div id="contenedor-resumen"></div>
 </div>
 
 {% endblock %}
 
 {% block extra_js %}
+<script>
+    const totalInput = document.querySelector("#totalInput");
+    totalInput.value = localStorage.getItem("total");
+</script>
 <script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
 {% endblock %}

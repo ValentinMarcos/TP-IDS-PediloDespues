@@ -11,6 +11,8 @@ class Query_sql:
     TICKET_GET_STATUS = "SELECT ID, ID_TRACKEO, Estado FROM Tickets"
     TICKET_UPDATE_STATUS = "UPDATE Tickets SET Estado = %s WHERE ID_TRACKEO"
     TICKET_BY_TRACKEO = "SELECT Estado FROM Tickets WHERE ID_TRACKEO = :id_trackeo"
+    TICKET_BY_ID = "SELECT ID, Total, Payload, Estado, FechaCreacion FROM Tickets WHERE ID = :ID"
+    ADD_TICKET = "INSERT INTO Tickets (ID, Total, Payload, Estado, FechaCreacion) VALUES (:ID, :Total, :Payload, :Estado, :FechaCreacion)"
     QR_GET_ALL = "SELECT * FROM QR"
     
     def ejecutarSQL(self, query, parameters=None):
@@ -23,3 +25,4 @@ class Query_sql:
         except SQLAlchemyError as e:
             print(f"Error en la consulta: {e}")
             return None
+        

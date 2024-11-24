@@ -231,7 +231,7 @@ a {
 .productLi {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     padding: 10px;
     border-bottom: 1px solid #eaeaea;
     font-size: 14px;
@@ -242,10 +242,24 @@ a {
     border-bottom: none;
 }
 
+.infoProduct {
+    flex: 2;
+}
+
 .infoProduct p {
     margin: 5px 0;
     font-size: 14px;
     color: #444;
+}
+
+.imageProduct {
+    flex: 1;
+}
+
+.imageProduct img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .totalDiv {
