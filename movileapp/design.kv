@@ -310,3 +310,35 @@
                         on_release: root.mostrar_cupon(2)
                         size_hint_y: None
                         height: dp(40)
+
+<ErrorScreen>:
+    name: 'error_view'
+    canvas.before:
+        Color: 
+            rgba: (203/255, 191/255, 168/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(20)
+        padding: [dp(20), dp(20)]
+
+        Image:
+            source: 'error.png'
+            size_hint: None, None
+            size: dp(300), dp(300)
+            allow_stretch: True
+            pos_hint: {'center_x': 0.5}
+
+        MDRaisedButton:
+            text: 'Menú Principal'
+            font_size: '20pt'
+            underline: True
+            size_hint_y: None
+            height: dp(50)
+            pos_hint: {'center_x': 0.5}
+            elevation: 0
+            on_release: app.root.current = 'main_view'
+
