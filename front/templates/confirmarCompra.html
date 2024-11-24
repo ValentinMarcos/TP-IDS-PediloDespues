@@ -42,7 +42,7 @@
             <p><strong>Titular de la tarjeta:</strong> {{ metodoPago['titular'] }} </p>
             <p><strong>DNI del titular:</strong> {{ metodoPago['dni'] }} </p>
         </div>
-        <form action="{{ url_for('compraRealizada') }}" method="post">
+        <form action="{{ url_for('guardarCompra') }}" method="post">
             <input type="hidden" name="detallesEnvio" value='{{ detallesEnvio | tojson | safe }}'>
             <input type="hidden" name="metodoPago" value='{{ metodoPago | tojson | safe }}'>
             <input type="hidden" id="carritoInput" name="carrito" value="">

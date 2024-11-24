@@ -5,9 +5,9 @@ CREATE TABLE Productos (
     Categoria VARCHAR(50) NOT NULL
 );
 CREATE TABLE Tickets (
-    ID INT NOT NULL PRIMARY KEY,
+    ID VARCHAR(100) NOT NULL PRIMARY KEY,
     Total DECIMAL(6,2) NOT NULL,
-    Payload VARCHAR(200) NOT NULL,
+    Payload VARCHAR(2000) NOT NULL,
     Estado VARCHAR(50) NOT NULL,
     FechaCreacion DATETIME
 );

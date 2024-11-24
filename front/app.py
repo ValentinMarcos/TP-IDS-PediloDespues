@@ -70,16 +70,24 @@ def confirmarCompra():
     return render_template("confirmarCompra.html", is_mobile=is_mobile)
 
 
-@app.route("/compraRealizada", methods=["GET", "POST"])
-def compraRealizada():
-    return render_template("compraRealizada.html")
+@app.route("/guardarCompra", methods=["POST"])
+def guardarCompra():
+    try:
+        response = requests.post(API_URL + "/ticket", json=request.form.to_dict())
+        response.raise_for_status()
+        id = response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"error data : {e}")
+        id = None
+    return redirect(url_for("compraRealizada", id=id))
 
 
-""" @app.route('/compraRealizada/<id>')
+@app.route("/compraRealizada/<id>")
 def compraRealizada(id):
-    user_agent = parse(request.headers.get('User-Agent'))
-    is_mobile = user_agent.is_mobile  
-    return render_template("compraRealizada.html", is_mobile=is_mobile, id=id) """
+    user_agent = parse(request.headers.get("User-Agent"))
+    is_mobile = user_agent.is_mobile
+    return render_template("compraRealizada.html", is_mobile=is_mobile, id=id)
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
