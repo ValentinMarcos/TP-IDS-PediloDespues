@@ -87,6 +87,7 @@
             allow_stretch: True 
 
         MDTextField:
+            id: input_trackeo
             hint_text: "Ingrese Código Rastreo"
             helper_text: 'ID del Cliente'
             helper_text_mode: 'on_focus'
@@ -101,7 +102,6 @@
             line_color_focus: (0, 0.157, 0.176)
             elevation: 0
             multiline: False
-            on_text_validate: root.enviar_ID(self)
         
         MDRaisedButton:
             text: 'Consultar'
@@ -110,7 +110,7 @@
             size_hint_y: None
             pos_hint: {'center_x': 0.5, 'center_y': 0.29}
             elevation: 0
-            on_release: app.root.current = 'track_view'
+            on_release: root.consultar_ticket(input_trackeo.text)
 
         MDRaisedButton:
             text: 'Menú Principal'
