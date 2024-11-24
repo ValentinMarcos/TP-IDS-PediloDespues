@@ -48,11 +48,11 @@ def add_ticket():
         
     ticket_id = str(uuid.uuid4())
     try:
-        result = q.ejecutarSQL(q.TICKET_BY_ID, {"ID": ticket_id}).fetchall()
+        result = q.ejecutarSQL(q.TICKET_BY_ID, {"ID_TRACKEO": ticket_id}).fetchall()
 
         if len(result) > 0:
             return jsonify({"error": "El ticket ya existe"}), 400
-        params = {"ID": ticket_id,"Total": float(total),"Payload": data,"Estado": "Autorizado","FechaCreacion": datetime.now()}
+        params = {"ID_TRACKEO": ticket_id,"Total": float(total),"Payload": data,"Estado": "Autorizado"}
         q.ejecutarSQL(q.ADD_TICKET, params)
 
     except Exception as e:
