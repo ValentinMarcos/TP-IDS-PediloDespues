@@ -26,6 +26,12 @@
         menusFiltrados.forEach(menu =>{
             let lista = menus[menu]; // [ {} {} {} {} ... {}]
             lista.forEach(elemento => {
+                // for( const k in elemento){
+                //     let texto = eliminarTildes(k).toLowerCase()
+                //     if(filtro === "" || texto.includes(filtro)){
+                //         listaFiltrada.push(elemento)
+                //     }
+                // }
                 let texto = eliminarTildes(elemento.nombre).toLowerCase()
                 if (filtro === "" || texto.includes(filtro)){
                     listaFiltrada.push(elemento)
