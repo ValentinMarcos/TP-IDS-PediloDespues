@@ -250,6 +250,12 @@ body {
         grid-column: 10/11;
         grid-row: 1/2;
     }
+    .cart-icon{
+        display: inline-block;
+        position: absolute;
+        top: 40px;
+        right: 40px
+    }
 }
 @media (min-width: 500px) and (max-width: 1000px){
     .container-principal .row h1 {
