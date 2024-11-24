@@ -140,6 +140,10 @@
         padding: 0px;
     }
 
+    .container{
+        width: auto;
+    }
+
     .about-header h2 {
         margin: 30px;
     }
