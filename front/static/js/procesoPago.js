@@ -1,6 +1,13 @@
 // Obtener el carrito desde el Local Storage
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// Convertir el carrito a JSON
+const carritoInput = document.querySelector("#carritoInput");
+if (carritoInput) {
+    const carritoJSON = JSON.stringify(carrito);
+    carritoInput.value = carritoJSON;
+}
+
 const resumen = crearResumenDeCompra(carrito);
 
 document.querySelector("#contenedor-resumen").appendChild(resumen);
@@ -18,6 +25,7 @@ function crearResumenDeCompra(carrito) {
 
     let total = 0;
 
+    // Creando un li por cada producto en el carrito
     carrito.forEach(producto => {
         const precioTotalProducto = producto.precio * producto.cantidad;
 
@@ -27,6 +35,10 @@ function crearResumenDeCompra(carrito) {
         const infoDiv = document.createElement("div");
         infoDiv.classList.add("infoProduct");
         productLi.appendChild(infoDiv);
+
+        const imageDiv = document.createElement("div");
+        imageDiv.classList.add("imageProduct");
+        productLi.appendChild(imageDiv);
 
         const nombre = document.createElement("p");
         nombre.textContent = `${producto.nombre} $${producto.precio}`;
@@ -39,6 +51,11 @@ function crearResumenDeCompra(carrito) {
         const precio = document.createElement("p");
         precio.textContent = `$${precioTotalProducto.toFixed(2)}`;
         infoDiv.appendChild(precio);
+
+        const imagen = document.createElement("img");
+        imagen.src = producto.img;
+        imagen.alt = producto.nombre;
+        imageDiv.appendChild(imagen);
 
         resumenUl.appendChild(productLi);
 
@@ -59,7 +76,8 @@ function crearResumenDeCompra(carrito) {
     totalCantidad.textContent = `$${total.toFixed(2)}`;
     totalDiv.appendChild(totalCantidad);
 
+    localStorage.setItem('total', total.toFixed(2));
     resumenDiv.appendChild(totalDiv);
-
+    
     return resumenDiv;
 }
