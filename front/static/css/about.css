@@ -119,12 +119,33 @@
 
 /*Tamaño para TABLET/MOBILE a modificar*/
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .questions-section {
         padding: 20px; 
     }
     .question-box {
         padding: 15px; 
         font-size: var(--tl-fs-texto); 
+    }
+    .about-section{
+        width: 100vh;
+    }
+
+    .about-seccion{
+        padding: 0px;
+        width: 100%;
+    }
+    .about-header{
+        flex-wrap: wrap;
+        padding: 0px;
+    }
+
+    .about-header h2 {
+        margin: 30px;
+    }
+    
+
+    .nav-desktop-container {
+        width: 100%;
     }
 }

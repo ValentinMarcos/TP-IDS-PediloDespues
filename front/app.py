@@ -21,13 +21,6 @@ def home():
     except requests.exceptions.RequestException as e:
         print(f"error data : {e}")
 
-        "pollo": [{"nombre":''.join(items.split(',')[0]).lower(), "img":"static/images/"+ ''.join(items.lower().split(',')[0].split(" ")) + ".jpg", "precio": items.split(",")[1] } for items in ["Pollo al champignon,12000", "Pollo al horno,9000", "Milanesa de pollo,6000", "Pollo al espiedo,15000", "Pollo frito,12000"]],
-        
-        "acompañamientos": [{"nombre":''.join(items.split(',')[0]).lower(), "img":"static/images/"+ ''.join(items.lower().split(',')[0].split(" ")) + ".jpg", "precio": items.split(",")[1] } for items in ["Papas fritas,3000", "Pure de papas,2000", "Ensalada mixta,3500", "Aros de cebolla,2000"]],
-        
-        "postres": [{"nombre":''.join(items.split(',')[0]).lower(), "img":"static/images/"+ ''.join(items.lower().split(',')[0].split(" ")) + ".jpg", "precio": items.split(",")[1] } for items in ["Flan,6000", "Brownie,4000", "Cheesecake,5000", "Tiramisu,7000", "Helado,7000"]],
-    }
-
     categorias = [categoria for categoria in menus ]
     return render_template("home.html", is_mobile=is_mobile, categorias=categorias, menus=menus)
 
