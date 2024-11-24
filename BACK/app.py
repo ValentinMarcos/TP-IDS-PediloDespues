@@ -19,7 +19,7 @@ def ver_productos():
     
     return jsonify(productos_por_categoria)
 
-@app.route("/estado")
+@app.route("/ticket")
 def obtener_estado_ticket():
     
     
@@ -32,6 +32,23 @@ def obtener_estado_ticket():
     tickets_estado = [{"id": ticket[0], "id_trackeo": ticket[1], "estado": ticket[2]} for ticket in resultados]
 
     return jsonify(tickets_estado)
+
+@app.route("/ticket/<id_trackeo>")
+def obtener_estado(id_trackeo):
+
+    result = q.ejecutarSQL(q.TICKET_BY_TRACKEO, {'id_trackeo': id_trackeo})
+    
+    if result:
+        
+        estado = result.fetchone()  
+        if estado:
+            return jsonify({'id_trackeo': id_trackeo, 'estado': estado[0]})
+        
+        return jsonify({'error': 'Ticket no encontrado'}), 404
+    
+    return jsonify({'error': 'Error al realizar la consulta'}), 500   
+  
+   
     
 @app.route("/actualizarEstado", methods=["PUT"])
 def actualizar_estado():
@@ -69,7 +86,16 @@ def cargar_datos():
         
     return jsonify({"mensaje" : "se cargaron los datos correctamente"})
 
+@app.route("/qr")
+def obtener_qrs():
+    resultados = q.ejecutarSQL(q.QR_GET_ALL)
+    
+    if not resultados:
+        return jsonify({"mensaje": "No se encontraron qrs"}),404
+    
+    qrs_estado = [{"id":qr[0],"hash":qr[1],"estado": qr[2]} for qr in resultados]
 
+    return jsonify(qrs_estado)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1",port=5001,debug=True)
