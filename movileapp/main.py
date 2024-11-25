@@ -22,6 +22,7 @@ class MainScreen(Screen):
 class SecondScreen(Screen):
 
     def consultar_ticket(self, trackeo_codigo):
+        trackeo_codigo = trackeo_codigo.strip()
         try:
             # Enviar una solicitud GET a la API `/tickets`
             response = requests.get("http://localhost:5001/ticket")
@@ -30,8 +31,17 @@ class SecondScreen(Screen):
                 tickets = response.json()  # Convertir la respuesta en una lista de diccionarios
                 
                 # Buscar un ticket que coincida con el id_trackeo ingresado
-                match = next((ticket for ticket in tickets if ticket['id_trackeo'] == int(trackeo_codigo)), None)
+                #match = next((ticket for ticket in tickets if ticket['id_trackeo'] == trackeo_codigo), None)
                 
+                match = False
+
+                for tiket in tickets:
+                    print(tiket['id_trackeo'], "==", trackeo_codigo)
+                    print(type(tiket['id_trackeo']))
+                    print(type(trackeo_codigo))
+                    if tiket['id_trackeo'] == trackeo_codigo:
+                        match = True
+
                 if match:
                     print(f"Match encontrado: {match}")
                     
@@ -52,7 +62,7 @@ class SecondScreen(Screen):
 
 class TrackScreen(Screen):
     id_trackeo = StringProperty("")  # Esta propiedad debe ser pasada desde la otra pantalla.
-    state_icons = ListProperty(["truck-delivery", "", "", "", ""])  # Inicializamos con el primer estado como "truck-delivery".
+     # Inicializamos con el primer estado como "truck-delivery".
 
     def on_enter(self):
         # Inicia la consulta cada 3 segundos para consultar el estado del ticket
@@ -63,34 +73,36 @@ class TrackScreen(Screen):
         Clock.unschedule(self.consultar_estado_ticket)
 
     def consultar_estado_ticket(self, dt):
+
         try:
             # Hacer la consulta al endpoint `/ticket` para obtener la lista de tickets
-            response = requests.get(f"http://localhost:5001/ticket")  # Asegúrate de que la URL esté correcta.
+            response = requests.get(f"http://localhost:5001/ticket/{self.id_trackeo}")  # Asegúrate de que la URL esté correcta.
             
             if response.status_code == 200:
                 tickets = response.json()  # Convertir la respuesta a una lista de diccionarios
                 
                 # Buscar el ticket correspondiente al id_trackeo
-                match = next((ticket for ticket in tickets if ticket['id_trackeo'] == int(self.id_trackeo)), None)
+                estado = tickets.get("estado","") #match = next((ticket for ticket in tickets if ticket['id_trackeo'] == int(self.id_trackeo)), None)
+                estados = ["Autorizando", "Armando pedido", "En camino", "Estamos en su domicilio", "Pedido Entregado"]
+
+                if estado in estados:
+                    print(estado)
+                    print("si estado")
+
+                nuevoEstado = []
+
+                for i in range(len(estados)):
+                    nuevoEstado.append("check")
+                    if estado == estados[i] :
+                        nuevoEstado[i]="truck-delivery"
+                        break
                 
-                if match:
-                    # Estado de la jerarquía
-                    estados = ["Autorizando", "Armando pedido", "En camino", "En su domicilio", "Pedido Entregado"]
-                    
-                    # Obtener el estado del ticket
-                    estado_actual = match.get("estado", "")
-                    
-                    if estado_actual in estados:
-                        index_estado = estados.index(estado_actual)
-                        # Actualizar los iconos según el estado
-                        self.state_icons = [
-                            "check" if i < index_estado else "truck-delivery" if i == index_estado else ""
-                            for i in range(len(estados))
-                        ]
-                    else:
-                        print(f"Estado desconocido: {estado_actual}")
-                else:
-                    print(f"Ticket con id_trackeo {self.id_trackeo} no encontrado")
+                if len(nuevoEstado)<len(estados):
+                    for _ in range(len(estado)-len(nuevoEstado)):
+                        nuevoEstado.append("")
+                
+                app = MDApp.get_running_app()
+                app.state_icons = nuevoEstado
             else:
                 print(f"Error al obtener los tickets: {response.status_code}")
         except requests.RequestException as e:
@@ -127,9 +139,7 @@ class PromoScreen(Screen):
         self.dialog.open()
     
 class MyApp(MDApp):
-
-    current_step = 0
-    state_icons = ListProperty(["truck-delivery", "", "", "", ""])  # Asi empieza, luego se actualiza dependiendo el estado del pedido
+    state_icons = ListProperty(["","","","",""]) 
 
     def build(self):
         self.theme_cls.theme_style = 'Light'
@@ -146,12 +156,7 @@ class MyApp(MDApp):
         self.sm.add_widget(PromoScreen(name='promos_view'))
         self.sm.add_widget(ErrorScreen(name='error_view'))
 
-<<<<<<< HEAD
-=======
-        Clock.schedule_interval(self.simular_estado, 5)
 
-
->>>>>>> 4b4ee299ed6993ebd8af74e49b36e276edc698cb
         return self.sm
 
 
