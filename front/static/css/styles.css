@@ -479,7 +479,7 @@ ul.g1h0-social-icons li i {
 @media (max-width: 700px){
 
     .nav-desktop-container{
-        width: 100vw;
+        width: 100%;
     }
     .body{
         width: 100%;

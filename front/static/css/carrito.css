@@ -5,21 +5,23 @@ body {
     padding: 0;
 }
 
-
 .container-principal .row h1 {
     color: var(--clr-dos);
     font-size: var(--pc-fs-titulos);
+    font-family: var(--pc-ff-titulos);
     text-align: center;
     display: block;
     padding-bottom: 10px;
     margin-bottom: 20px;
     border-bottom: 2px solid var(--clr-dos);
 }
-.container-principal .row{
+
+.container-principal .row {
     text-align: center;
     display: block;
 }
-.carrito-btn-vaciar{
+
+.carrito-btn-vaciar {
     padding: 10px 15px;
     border: none;
     border-radius: 20px;
@@ -28,13 +30,14 @@ body {
     color: var(--clr-cuatro);
     font-size: var(--pc-fs-texto);
 }
+
 .carrito-btn-vaciar:hover {
     background-color: var(--clr-cuatro);
     color: var(--clr-seis);
-    
 }
+
 .container-principal {
-    background-color: var(--clr-uno); 
+    background-color: var(--clr-uno);
     padding: 20px;
     margin: 10px auto;
     border-radius: 30px;
@@ -51,17 +54,17 @@ body {
 }
 
 .btn-control {
-    font-size: 1rem; 
-    padding: 10px 20px; 
-    border: 4px solid #4f6e59; 
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 4px solid #4f6e59;
     cursor: pointer;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 .btn-control:focus,
 .btn-control:active {
-    outline: none;             
-    border-color: #4f6e59;      
+    outline: none;
+    border-color: #4f6e59;
     box-shadow: 0 0 5px #4f6e59;
 }
 
@@ -87,13 +90,14 @@ body {
 .col-12 {
     padding: 10px;
 }
+
 .container-resumen {
     background-color: var(--clr-diez);
     border-radius: 10px;
     text-align: center;
     padding: 20px;
-    
 }
+
 .container-resumen h4 {
     font-family: var(--pc-ff-titulos);
     font-size: var(--pc-fs-precios);
@@ -105,7 +109,7 @@ body {
 }
 
 #total-precio {
-    font-family: var(--pc-ff-precios) ;
+    font-family: var(--pc-ff-precios);
     font-size: var(--pc-fs-precios);
     font-weight: bold;
     color: var(--clr-dos);
@@ -119,19 +123,21 @@ body {
     font-size: var(--pc-fs-texto);
     margin: 10px 0;
 }
+
 #confirmar-pedido:hover {
     background-color: var(--clr-dos);
     color: var(--clr-cuatro);
 }
 
 /* TARJETAS */
-.ul-box{
+.ul-box {
     width: 100%;
     list-style-type: none;
     padding: 0;
 }
-.fila{
-    display:grid;
+
+.fila {
+    display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: 1fr;
 
@@ -144,11 +150,13 @@ body {
     border-radius: 10px;
     background-color: var(--clr-cuatro);
 }
-.fila .prod-cantidad{
+
+.fila .prod-cantidad {
     grid-column: 1/2;
     grid-row: 1/2;
 }
-.fila .prod-imagen{
+
+.fila .prod-imagen {
     grid-column: 2/4;
     grid-row: 1/2;
 
@@ -157,38 +165,43 @@ body {
     margin: auto;
     width: 80px;
     height: 80px;
-    background-color: green;
 }
-.fila .prod-nombre{
+
+.fila .prod-nombre {
     grid-column: 4/7;
     grid-row: 1/2;
 }
-.fila .btn-dec-cantidad{
+
+.fila .btn-dec-cantidad {
     grid-column: 7/8;
     grid-row: 1/2;
 
     background-color: var(--clr-seis);
     color: var(--clr-cuatro);
 }
-.fila .btn-inc-cantidad{
+
+.fila .btn-inc-cantidad {
     grid-column: 8/9;
     grid-row: 1/2;
 
     background-color: var(--clr-nueve);
     color: var(--clr-cuatro);
 }
-.fila .prod-precio{
+
+.fila .prod-precio {
     grid-column: 9/10;
     grid-row: 1/2;
 }
-.fila .btn-eliminar-prod{
+
+.fila .btn-eliminar-prod {
     grid-column: 10/11;
     grid-row: 1/2;
 
     background-color: var(--clr-diez);
     color: var(--clr-cuatro);
 }
-.btn{
+
+.btn {
     margin: auto;
     padding: 10px 15px;
     border: none;
@@ -249,6 +262,12 @@ body {
     .fila .btn-eliminar-prod{
         grid-column: 10/11;
         grid-row: 1/2;
+    }
+    .cart-icon{
+        display: inline-block;
+        position: absolute;
+        top: 40px;
+        right: 40px
     }
 }
 @media (min-width: 500px) and (max-width: 1000px){
