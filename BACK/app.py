@@ -94,20 +94,23 @@ def obtener_estado(id_trackeo):
     return jsonify({'error': 'Error al realizar la consulta'}), 500   
 
 
-@app.route("/actualizarEstado", methods=["PUT"])
-def actualizar_estado():
+@app.route("/ticket", methods=["PUT"])
+def actualizar_estado_tiket():
     
     data = request.get_json()
 
     id_trackeo = data.get("ID_TRACKEO")  
     nuevo_estado = data.get("Estado")
+
+    print("DEBUG")
+    print(id_trackeo, nuevo_estado)
     
     if not id_trackeo or not nuevo_estado:
         return jsonify({"mensaje": "ID_TRACKEO y Estado son requeridos"}), 400
 
     try:
 
-        q.ejecutarSQL(q.TICKET_UPDATE_STATUS, (nuevo_estado, id_trackeo))
+        q.ejecutarSQL(q.TICKET_UPDATE_STATUS, {"nuevo_estado": nuevo_estado, "id_trackeo": id_trackeo})
         return jsonify({"mensaje": "Estado actualizado con éxito"}), 200
     except Exception as e:
         return jsonify({"mensaje": f"Error al actualizar estado: {str(e)}"}), 500
