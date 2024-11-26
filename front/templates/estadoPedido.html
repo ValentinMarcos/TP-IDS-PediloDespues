@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %} Estado Pedido {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/seguimiento.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-estado-envio">
+    <div class="codigo-seguimiento">
+        <h2>Seguimiento del Pedido: #{{ codigo }}</h2>
+    </div>
+
+    <div class="seguimiento-content">
+        <div class="estado-pedido">
+            <h3>Estado del Pedido: <strong id="estado-actual">{{ datos['Estado'] }}</strong></h3>
+            <p>Fecha: {{ datos['FechaCreacion'] }} </p>
+            <div class="status-line-container">
+                <div class="status-text-container">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p class="status-point">Autorizando</p>
+                </div>
+                <div class="status-text-container">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p class="status-point">Armando pedido</p>
+                </div>
+                <div class="status-text-container">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p class="status-point">En camino</p>
+                </div>
+                <div class="status-text-container">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p class="status-point">En su domicilio</p>
+                </div>
+                <div class="status-text-container bar-transparent">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p class="status-point">Pedido Entregado</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="map"></div>
+    </div>
+
+    <div class="info-cliente">
+        <div class="datos-guardados">
+            <div class="seguimiento-detallesEnvio">
+                <h3>Información del Cliente</h3>
+                <p><strong>Nombre y Apellido:</strong> {{ detallesEnvio['nombre'] }} {{ detallesEnvio['apellido'] }}</p>
+                <p><strong>Dirección:</strong> {{ detallesEnvio['direccion'] }}</p>
+                <p><strong>Correo Electrónico:</strong> {{ detallesEnvio['email'] }}</p>
+                <p><strong>Teléfono:</strong> {{ detallesEnvio['telefono'] }}</p>
+                <p><strong>DNI:</strong> {{ detallesEnvio['dni'] }} </p>
+            </div>
+            <div class="seguimiento-metodoPago">
+                <h3>Método de Pago</h3>
+                <p><strong>Método:</strong> Tarjeta</p>
+                <p><strong>Titular:</strong> {{ metodoPago['titular'] }}</p>
+                <p><strong>Número de Tarjeta:</strong> {{ metodoPago['numero'] }}</p>
+                <p><strong>DNI del pagador:</strong> {{ metodoPago['dni'] }}</p>
+
+            </div>
+        </div>
+        <div id="contenedor-resumen">
+            <div class="resumenDiv">
+                <h2>Resumen de la compra</h2>
+                <ul class="products-summary">
+                    {% for producto in carrito %}
+                    <li class="productLi">
+                        <div class="infoProduct">
+                            <p>{{ producto['nombre'] }} ${{ producto['precio'] }}</p>
+                            <p>Cantidad: {{ producto['cantidad'] }}</p>
+                            <p>Total: ${{ producto['cantidad'] * (producto['precio'] | float) }}</p>
+
+                        </div>
+                        <div class="imageProduct">
+                            <img src="/{{ producto['img'] }}" alt="{{ producto['nombre'] }}">
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="totalDiv">
+                    <p>Total: {{datos['Total']}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+    const local = [-34.60377894667502, -58.410986509306255]; // Coordenadas del local
+    const cliente = {{ detallesEnvio['coordenadas'] | tojson }};
+</script>
+<script src="{{url_for('static', filename='js/seguimiento.js')}}"></script>
+{% endblock %}

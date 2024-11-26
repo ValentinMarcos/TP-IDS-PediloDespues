@@ -45,20 +45,38 @@ def add_ticket():
     for key in keys:
         if key not in data:
             return jsonify({"error": f"Falta el dato {key}"}), 400
-        
+
     ticket_id = str(uuid.uuid4())
     try:
         result = q.ejecutarSQL(q.TICKET_BY_ID, {"ID_TRACKEO": ticket_id}).fetchall()
 
         if len(result) > 0:
             return jsonify({"error": "El ticket ya existe"}), 400
-        params = {"ID_TRACKEO": ticket_id,"Total": float(total),"Payload": data,"Estado": "Autorizado"}
+        params = {"ID_TRACKEO": ticket_id,"Total": float(total),"Payload": data,"Estado": "Autorizando"}
         q.ejecutarSQL(q.ADD_TICKET, params)
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
     return jsonify(ticket_id), 201
+
+
+@app.route("/tickets/<id_trackeo>", methods=["GET"])
+def get_ticket(id_trackeo):
+    try:
+        result = q.ejecutarSQL(q.TICKET_BY_ID, {"ID_TRACKEO": id_trackeo}).fetchone()
+
+        if not result:
+            return jsonify({"error": "No se encontró el ticket"}), 404
+
+        # convierte el resultado en un diccionario
+        keys = ["ID", "Total", "Payload", "Estado", "FechaCreacion"]
+        ticket = dict(zip(keys, result))
+
+        return jsonify(ticket), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route("/ticket/<id_trackeo>")
 def obtener_estado(id_trackeo):
@@ -76,7 +94,6 @@ def obtener_estado(id_trackeo):
     return jsonify({'error': 'Error al realizar la consulta'}), 500   
 
 
-    
 @app.route("/actualizarEstado", methods=["PUT"])
 def actualizar_estado():
     

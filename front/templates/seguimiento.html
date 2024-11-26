@@ -1,1 +1,24 @@
 {% extends 'base.html' %}
+
+{% block title %} Seguimiento {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/seguimiento.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-seguimiento">
+    <h2>Ingresar Código</h2>
+    <form action="{{ url_for('seguimiento') }}" method="POST">
+        <div class="form-group row">
+            <label for="codigo" >Código de Seguimiento</label>
+            <input type="text" class="form-input" id="codigo" name="codigo" required>
+            <button type="submit" class="button">Buscar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
