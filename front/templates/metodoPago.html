@@ -23,13 +23,11 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="pay-form">
-        <h2>Información de la tarjeta</h2>
-
+<div class="container-pago">
+    <div class="pay-form general-form">
         <form action="{{ url_for('confirmarCompra') }}" method="post">
             <div class="form-group">
-                <label for="numero">Número:</label>
+                <label for="numero">Número de la tarjeta:</label>
                 <input type="number" id="numero" name="numero" required>
             </div>
             <div class="form-group">
@@ -57,22 +55,11 @@
         </form>
     </div>
 
-    <div class="summary">
-        <h2>Resumen de la Compra</h2>
-        <div class="product">
-            <p>Producto 1</p>
-            <img src=" {{ url_for('static', filename='/images/pepsi.jpeg') }}" alt="">
-            <p>$25.00</p>
-        </div>
-        <div class="product">
-            <p>Producto 2</p>
-            <img src=" {{ url_for('static', filename='/images/ensalada.jpeg') }}" alt="">
-            <p>$15.00</p>
-        </div>
-        <div class="total">
-            <p>Total:</p>
-            <p>$40.00</p>
-        </div>
-    </div>
+    <div id="contenedor-resumen"></div>
 </div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
 {% endblock %}

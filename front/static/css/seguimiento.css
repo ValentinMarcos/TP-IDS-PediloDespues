@@ -1,0 +1,311 @@
+/* Estilos para seguimiento.html */
+
+.container-seguimiento {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container-seguimiento h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group.row {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    display: block;
+}
+
+.form-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #007bff;
+}
+
+.button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .form-group.row {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+
+
+/* Estilos para estadoPedido.html */
+
+/* Seguimiento del Pedido */
+.seguimiento-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+}
+
+.codigo-seguimiento {
+    background-color: #ccc0a9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.codigo-seguimiento h2 {
+    margin: 0;
+}
+
+.estado-pedido {
+    flex: 1;
+    width: 100%;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status-text-container {
+    width: 15.5rem;
+    height: 3.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+    border-left: 2px solid rgb(175, 175, 175);
+    padding-left: 2.188rem;
+    padding-bottom: 1.313rem;
+    position: relative;
+}
+
+.bar-done {
+    border-left: 2px solid #00b941;
+}
+
+.bar-transparent {
+    border-left: 2px solid transparent;
+}
+
+.status-point {
+    margin: 0%;
+}
+
+.status-line-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fa-circle-check{
+    background-color: white;
+    color: rgb(175, 175, 175);
+    position: absolute;
+    left: -9px;
+    top: 0;
+}
+
+.circle-done {
+    color: #00b941;
+}
+
+
+
+/* Map Section */
+#map {
+    flex: 1;
+    height: 520px;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Información del Cliente */
+.info-cliente {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+    background-color: #fff;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
+
+.datos-guardados {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin: 0 auto;
+}
+
+.seguimiento-detallesEnvio,
+.seguimiento-metodoPago {
+    padding: 1em;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+
+
+/* ------ Css para el resumen compra -------*/
+
+#contenedor-resumen {
+    margin: 0 auto;
+}
+
+.resumenDiv {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ccc0a9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resumenDiv h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+.products-summary {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.productLi {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 14px;
+    color: #555;
+}
+
+.productLi:last-child {
+    border-bottom: none;
+}
+
+.infoProduct {
+    flex: 2;
+}
+
+.infoProduct p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.imageProduct {
+    flex: 1;
+}
+
+.imageProduct img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.totalDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 2px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.totalDiv p:last-child {
+    color: black;
+}
+
+/* Cambiando la disposición cuando la pantalla sea más pequeña */
+@media (max-width: 930px) {
+    .seguimiento-content {
+        flex-direction: column;
+        gap: 1em;
+    }
+    #map {
+        flex: auto;
+    }
+
+}
+
+@media (max-width: 880px) {
+    .info-cliente {
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+
+@media (max-width: 360px) {
+    .resumenDiv {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 320px) {
+    .resumenDiv {
+        width: 100%;
+    }
+}

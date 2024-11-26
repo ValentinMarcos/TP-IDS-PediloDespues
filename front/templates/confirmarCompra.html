@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Detalles del envío {% endblock %}
+{% block title %} Confirmar Compra {% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/procesoPago.css') }}">{% endblock %}
@@ -23,8 +23,8 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="informacion">
+<div class="container-pago">
+    <div class="informacion general-form">
         <h2>Confirmación de Pago</h2>
 
         <div class="info-section">
@@ -42,28 +42,26 @@
             <p><strong>Titular de la tarjeta:</strong> {{ metodoPago['titular'] }} </p>
             <p><strong>DNI del titular:</strong> {{ metodoPago['dni'] }} </p>
         </div>
-        <div class="confirm-button">
-            <a href="{{ url_for('compraRealizada') }}"><button type="button" class="next-button">Confirmar
-                    Compra</button></a>
-        </div>
+        <form action="{{ url_for('guardarCompra') }}" method="post">
+            <input type="hidden" name="detallesEnvio" value='{{ detallesEnvio | tojson | safe }}'>
+            <input type="hidden" name="metodoPago" value='{{ metodoPago | tojson | safe }}'>
+            <input type="hidden" id="carritoInput" name="carrito" value="">
+            <input type="hidden" id="totalInput" name="total" value="">
+            <div class="confirm-button">
+                <button type="submit" class="next-button">Finalizar Compra</button>
+            </div>
+        </form>
     </div>
 
-    <div class="summary">
-        <h2>Resumen de la Compra</h2>
-        <div class="product">
-            <p>Producto 1</p>
-            <img src=" {{ url_for('static', filename='/images/pepsi.jpeg') }}" alt="">
-            <p>$25.00</p>
-        </div>
-        <div class="product">
-            <p>Producto 2</p>
-            <img src=" {{ url_for('static', filename='/images/ensalada.jpeg') }}" alt="">
-            <p>$15.00</p>
-        </div>
-        <div class="total">
-            <p>Total:</p>
-            <p>$40.00</p>
-        </div>
-    </div>
+    <div id="contenedor-resumen"></div>
 </div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const totalInput = document.querySelector("#totalInput");
+    totalInput.value = localStorage.getItem("total");
+</script>
+<script src="{{url_for('static', filename='js/procesoPago.js')}}"></script>
 {% endblock %}
