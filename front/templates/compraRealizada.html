@@ -11,5 +11,10 @@
     <p>ID del pedido: {{id}}</p>
 </div>
 
+{% endblock %}
 
+{% block extra_js %} 
+    <script>
+        localStorage.setItem('carrito', JSON.stringify([]));
+    </script> 
 {% endblock %}

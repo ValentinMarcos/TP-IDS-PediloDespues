@@ -142,6 +142,10 @@
     margin-top: 10px;
 }
 
+.boton-carrito {
+    background-color: #ff5a5a;
+}
+
 a {
     text-decoration: none;
     color: white;
@@ -149,6 +153,10 @@ a {
 
 .next-button:hover {
     background-color: #45a049;
+}
+
+.boton-carrito:hover {
+    background-color: #da4a4a;
 }
 
 .confirmation-container {
