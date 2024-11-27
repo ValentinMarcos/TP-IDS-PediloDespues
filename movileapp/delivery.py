@@ -2,7 +2,7 @@ import requests
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
-from kivy.properties import ListProperty, StringProperty # type: ignore
+from kivy.properties import ListProperty, StringProperty
 from kivy.clock import Clock
 from kivymd.uix.screen import Screen
 from kivymd.uix.button import MDRaisedButton
@@ -20,7 +20,7 @@ class SecondScreen(Screen):
             self.mostrar_error("Por favor ingresa un ID de rastreo válido.")
             return
 
-        url = "http://localhost:5001/ticket"  # URL del endpoint
+        url = "http://localhost:5001/ticket"
         payload = {
             "ID_TRACKEO": id_trackeo,
             "Estado": estado
