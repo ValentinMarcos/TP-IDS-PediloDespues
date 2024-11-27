@@ -36,12 +36,12 @@ def obtener_estado_ticket():
 
 @app.route("/ticket", methods=["POST"])
 def add_ticket():
-    data = (request.get_json())  # data es un diccionario de strings json, con las claves 'detallesEnvio', 'metodoPago', 'carrito' y 'total'
+    data = (request.get_json())
     total = data["total"]
-    data.pop("total")  # como guardamos total en otra variable, lo eliminamos del diccionario
-    data = json.dumps(data)  # convertimos el diccionario a un string json para poder guardarlo en la base de datos
+    data.pop("total")
+    data = json.dumps(data)
 
-    keys = ("detallesEnvio","metodoPago","carrito")  # a cada key esta asociado un valor string json que puede ser convertido a diccionario/lista
+    keys = ("detallesEnvio","metodoPago","carrito")
     for key in keys:
         if key not in data:
             return jsonify({"error": f"Falta el dato {key}"}), 400
@@ -69,7 +69,6 @@ def get_ticket(id_trackeo):
         if not result:
             return jsonify({"error": "No se encontró el ticket"}), 404
 
-        # convierte el resultado en un diccionario
         keys = ["ID", "Total", "Payload", "Estado", "FechaCreacion"]
         ticket = dict(zip(keys, result))
 

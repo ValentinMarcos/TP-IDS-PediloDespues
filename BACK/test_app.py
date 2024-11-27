@@ -22,10 +22,7 @@ def test_producto_by_id():
     assert len(producto) > 0, "No se encontró el producto esperado"
 
 if __name__ == "__main__":
-    # Primero, agrega un producto de prueba
     test_agregar_producto()
-    # Luego esto verificar si se pueden ver los productos
     test_ver_productos()
-    # Verificar si se puede obtener un producto por ID
     test_producto_by_id()
     print("Todas las pruebas pasaron correctamente.")

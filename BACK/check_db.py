@@ -3,7 +3,6 @@ from mysql.connector import Error
 
 def check_database_and_table():
     try:
-        # Conectar a MySQL
         conexion = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -13,7 +12,6 @@ def check_database_and_table():
         if conexion.is_connected():
             print("Conectado a MySQL")
 
-            # Verificar si la base de datos 'proyecto' existe
             cursor = conexion.cursor()
             cursor.execute("SHOW DATABASES LIKE 'proyecto'")
             database_exists = cursor.fetchone()
@@ -23,7 +21,6 @@ def check_database_and_table():
                 
                 conexion.database = 'proyecto'
 
-                # Verificar si la tabla 'Productos' existe
                 cursor.execute("SHOW TABLES LIKE 'Productos'")
                 table_exists = cursor.fetchone()
                 if table_exists:
