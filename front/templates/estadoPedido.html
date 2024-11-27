@@ -98,7 +98,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-    const local = [-34.60377894667502, -58.410986509306255]; // Coordenadas del local
+    const local = [-34.60377894667502, -58.410986509306255];
     const cliente = {{ detallesEnvio['coordenadas'] | tojson }};
 </script>
 <script src="{{url_for('static', filename='js/seguimiento.js')}}"></script>

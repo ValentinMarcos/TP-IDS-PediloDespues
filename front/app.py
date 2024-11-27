@@ -31,7 +31,6 @@ def obtener_coordenadas(direccion):
     try:
         geolocalizador = Nominatim(user_agent="PediloDespues")
 
-        # obtenemos las coordenadas de la dirección
         coordenadas = geolocalizador.geocode(direccion, exactly_one=True)
 
         if coordenadas:
@@ -73,8 +72,8 @@ def estadoPedido(codigo):
     payload = json.loads(payload)
     detallesEnvio = json.loads(payload["detallesEnvio"])
     metodoPago = json.loads(payload["metodoPago"])
-    carrito = json.loads(payload["carrito"])  # es una lista de diccionario de productos
-    detallesEnvio['coordenadas'] = [-34.60377894667502, -58.410986509306255] # Coordenadas del local
+    carrito = json.loads(payload["carrito"])
+    detallesEnvio['coordenadas'] = [-34.60377894667502, -58.410986509306255]
     try:
         coordenadas_cliente = obtener_coordenadas(detallesEnvio["direccion"])
         if coordenadas_cliente:
