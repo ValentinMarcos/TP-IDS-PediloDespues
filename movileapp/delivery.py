@@ -11,18 +11,10 @@ from kivy.properties import ObjectProperty
 from kivy.clock import mainthread
 import hashlib
 
-
-class MainScreen(Screen):
-    pass
-
 class SecondScreen(Screen):
 
     @mainthread
     def enviar_estado(self, estado):
-        """
-        Enviar el estado del ticket al endpoint mediante una solicitud PUT.
-        :param estado: Estado que se enviará al API.
-        """
         id_trackeo = id_trackeo = self.ids.input_trackeo.text.strip()
         if not id_trackeo:
             self.mostrar_error("Por favor ingresa un ID de rastreo válido.")
@@ -33,7 +25,6 @@ class SecondScreen(Screen):
             "ID_TRACKEO": id_trackeo,
             "Estado": estado
         }
-
         try:
             response = requests.put(url, json=payload)
             if response.status_code == 200:
@@ -44,25 +35,15 @@ class SecondScreen(Screen):
             self.mostrar_error(f"No se pudo conectar con el servidor: {str(e)}")
 
     def mostrar_exito(self, mensaje):
-        """
-        Mostrar mensaje de éxito (implementación básica; puedes usar un popup si prefieres).
-        """
         print(mensaje)
 
     def mostrar_error(self, mensaje):
-        """
-        Mostrar mensaje de error (implementación básica; puedes usar un popup si prefieres).
-        """
         print(mensaje)
 
     def consultar_ticket(self, estado):
-        """
-        Método vinculado a los botones para enviar la solicitud con el estado correspondiente.
-        """
         self.enviar_estado(estado)
 
 class MyApp(MDApp):
-    state_icons = ListProperty(["","","","",""]) 
 
     def build(self):
         self.theme_cls.theme_style = 'Light'
