@@ -31,6 +31,13 @@
             line_color_focus: (0, 0.157, 0.176)
             elevation: 0
             multiline: False
+
+        MDRaisedButton:
+            text: "Buscar"
+            pos_hint: {'center_x': 0.75, 'center_y': 0.8}
+            size_hint: None, None
+            size: dp(80), dp(40)
+            on_release: root.obtener_datos_cliente(root.ids.input_trackeo.text)
         
         MDRaisedButton:
             text: 'Autorizando'
@@ -76,3 +83,19 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.2}
             elevation: 0
             on_release: root.consultar_ticket(self.text)
+
+        MDLabel:
+            id: nombre_label
+            text: f"Pedido para: {root.nombre_cliente}"  # Esto se actualizará al obtener los datos
+            font_size: '18pt'
+            size_hint_y: None
+            height: 50
+            pos_hint: {'center_x': 0.5, 'top': 0.15}
+
+        MDLabel:
+            id: direccion_label
+            text: f"Dirección: {root.direccion_cliente}"  # Esto se actualizará al obtener los datos
+            font_size: '18pt'
+            size_hint_y: None
+            height: 50
+            pos_hint: {'center_x': 0.5, 'top': 0.1}
