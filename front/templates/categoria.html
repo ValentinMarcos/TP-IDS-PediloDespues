@@ -19,7 +19,9 @@
     <ul class="categoria-max-w-300">
         {% for categoria in categorias %}
         <li>
-            <input type="checkbox" name="categoria" class="categoria" value="{{categoria}}"> {{categoria}}
+            <input type="checkbox" name="categoria" class="categoria" value="{{categoria}}">
+            <span>{{categoria}}</span>
+            <img src="{{ url_for('static', filename='images/categorias-icons/' + categoria + '.png') }}" alt="{{categoria}} icon" class="categoria-iconos">
         </li>
         {% endfor %}
     </ul>    
