@@ -75,7 +75,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: url('/static/images/hamburgesa.png') 16 16, auto;
-    background-color: #cbbfa8;
+    background-color: var(--clr-uno);
     background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
@@ -104,11 +104,27 @@ ul {
     padding: 0;
 }
 
+.categoria-max-w-300 li span {
+    display: none;
+}
+
 .container-flex-col {
     display: flex;
     flex-direction: column;
     max-width: 1024px;
     width: 100%;
+}
+
+.categoria-iconos {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.categoria-container ul li {
+    margin-bottom: 12px;
 }
 
 .input-wrapper-bp {
@@ -119,14 +135,15 @@ ul {
 
 .input-bp {
     box-sizing: border-box;
-    color: #191919;
+    color: var(--clr-dos);
     padding: 15px 15px 15px 35px;
     width: 100%;
-
+    border-radius: 20px;
+    border: 1px solid var(--clr-dos);
 }
 
 .input-icon-bp {
-    color: #191919;
+    color: var(--clr-dos);
     position: absolute;
     width: 20px;
     height: 20px;
