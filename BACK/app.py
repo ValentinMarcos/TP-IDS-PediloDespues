@@ -2,11 +2,11 @@ import uuid
 from flask import Flask, render_template, url_for, redirect, request, jsonify
 from datetime import datetime
 from serializer import serializador_productos
-from querySql import Query_sql
+import querySql as q
 import json
 
 
-q = Query_sql()
+
 app = Flask(__name__)
 
 @app.route("/productos")

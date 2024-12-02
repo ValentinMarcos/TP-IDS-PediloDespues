@@ -10,8 +10,38 @@ from kivymd.uix.dialog import MDDialog
 from kivy.properties import ObjectProperty
 from kivy.clock import mainthread
 import hashlib
+import json
 
 class SecondScreen(Screen):
+
+    nombre_cliente = ""
+    direccion_cliente = ""
+
+    def obtener_datos_cliente(self, id_trackeo):
+        try:
+            response = requests.get(f"http://localhost:5001/tickets/{id_trackeo}")
+            
+            if response.status_code == 200:
+                datos = response.json()
+                
+                if 'Payload' in datos:
+                    payload = json.loads(datos['Payload'])
+                    detalles_envio = json.loads(payload['detallesEnvio'])
+
+                    self.nombre_cliente = f"{detalles_envio['nombre']} {detalles_envio['apellido']}"
+                    self.direccion_cliente = detalles_envio['direccion']
+
+                    self.ids.nombre_label.text = f"Pedido para: {self.nombre_cliente}"
+                    self.ids.direccion_label.text = f"Dirección: {self.direccion_cliente}"
+                    print(f"Datos del cliente obtenidos con éxito.")
+                    print(f"Nombre: {self.nombre_cliente}")
+                    print(f"Dirección: {self.direccion_cliente}")
+                else:
+                    print("Error: 'Payload' no encontrado en la respuesta.")
+            else:
+                print(f"Error {response.status_code}, no se pudo obtener los datos del cliente.")
+        except requests.RequestException as e:
+            print(f"Error al obtener datos del cliente: {e}")
 
     @mainthread
     def enviar_estado(self, estado):
