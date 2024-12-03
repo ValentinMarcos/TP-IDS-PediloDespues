@@ -242,26 +242,59 @@ ul {
     background-color: #ccc0a9;
 }
 
-.mobile-navbar i {
-    font-size: 5vmin;
-    cursor: pointer;
+.header-mobile {
+    width: 1024px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
-.mobile-navbar a {
+.logo-narbar-mobile {
+    background-color: #ccc0a9;
+    display: flex;
+    align-items: center;
+    width: 1024px;
+}
+
+.logo-narbar-mobile img {
+    height: 75px;
+    margin: 10px;
+}
+
+.navbar-mobile {
+    background-color: #ccc0a9;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 1024px;
+    z-index: 10;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.elementos-navbar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 600px;
+    padding: 0px 0px 0px 0px;
+}
+
+.elementos-navbar li {
     flex: 1;
     text-align: center;
-    font-size: 6vmin;
-    color: black;
 }
 
-.mobile-navbar a i {
-    display: block;
-    color: black;
-    padding: 0 5px;
+.elementos-navbar .cart-icon {
+    position: relative;
+    top: 0px;
+    right: 0px;
 }
 
-.mobile-navbar li:hover i {
-    color: black
+.elementos-navbar a {
+    color: #2e2e2e;
+    font-size: 18px;
 }
 
 /*Diseño respecto listadoFiltrado.html*/
@@ -502,6 +535,18 @@ ul.g1h0-social-icons li i {
         font-size: 20px;
     }
 
+}
+
+@media (max-width: 1024px){
+    .navbar-mobile {
+        width: 100%;
+    }
+    .logo-narbar-mobile {
+        width: 100%;
+    }
+    .header-mobile {
+        width: 100%;
+    }
 }
 
 @media (max-width: 700px){

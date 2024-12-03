@@ -58,7 +58,7 @@ class TrackScreen(Screen):
     def consultar_estado_ticket(self, dt):
 
         try:
-            response = requests.get(f"http://localhost:5001/ticket/{self.id_trackeo}")
+            response = requests.get(f"http://localhost:5001/ticket/{self.id_trackeo}/estado")
             
             if response.status_code == 200:
                 tickets = response.json()

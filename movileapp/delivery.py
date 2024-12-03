@@ -19,7 +19,7 @@ class SecondScreen(Screen):
 
     def obtener_datos_cliente(self, id_trackeo):
         try:
-            response = requests.get(f"http://localhost:5001/tickets/{id_trackeo}")
+            response = requests.get(f"http://localhost:5001/ticket/{id_trackeo}")
             
             if response.status_code == 200:
                 datos = response.json()

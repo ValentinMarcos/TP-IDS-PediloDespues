@@ -50,7 +50,7 @@ def seguimiento():
         try:
             codigo = request.form.get("codigo")
 
-            response = requests.get(f"{API_URL}/tickets/{codigo}")
+            response = requests.get(f"{API_URL}/ticket/{codigo}")
             response.raise_for_status()
             return redirect( url_for('estadoPedido', codigo = codigo))
         except requests.exceptions.HTTPError as e:
@@ -63,7 +63,7 @@ def seguimiento():
 def estadoPedido(codigo):
     user_agent = parse(request.headers.get("User-Agent"))
     is_mobile = user_agent.is_mobile
-    response = requests.get(f"{API_URL}/tickets/{codigo}")
+    response = requests.get(f"{API_URL}/ticket/{codigo}")
     response.raise_for_status()
 
     datos = response.json()
@@ -87,12 +87,16 @@ def estadoPedido(codigo):
 
 @app.route("/aboutUs")
 def aboutUs():
-    return render_template("aboutUs.html")
+    user_agent = parse(request.headers.get("User-Agent"))
+    is_mobile = user_agent.is_mobile
+    return render_template("aboutUs.html", is_mobile=is_mobile)
 
 
 @app.route("/carrito")
 def carrito():
-    return render_template("carrito.html")
+    user_agent = parse(request.headers.get("User-Agent"))
+    is_mobile = user_agent.is_mobile
+    return render_template("carrito.html", is_mobile=is_mobile)
 
 
 @app.route("/detallesEnvio", methods=["GET", "POST"])

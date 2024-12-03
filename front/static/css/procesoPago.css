@@ -51,7 +51,6 @@
 
 .container-pago {
     display: flex;
-    max-width: 980px;
     margin-right: auto;
     margin-bottom: 20px;
     gap: 20px;

@@ -20,7 +20,7 @@ def ver_productos():
     
     return jsonify(productos_por_categoria)
 
-@app.route("/ticket")
+@app.route("/ticket", methods=["GET"])
 def obtener_estado_ticket():
     
     
@@ -61,7 +61,7 @@ def add_ticket():
     return jsonify(ticket_id), 201
 
 
-@app.route("/tickets/<id_trackeo>", methods=["GET"])
+@app.route("/ticket/<id_trackeo>", methods=["GET"])
 def get_ticket(id_trackeo):
     try:
         result = q.ejecutarSQL(q.TICKET_BY_ID, {"ID_TRACKEO": id_trackeo}).fetchone()
@@ -77,7 +77,7 @@ def get_ticket(id_trackeo):
         return jsonify({"error": str(e)}), 500
 
 
-@app.route("/ticket/<id_trackeo>")
+@app.route("/ticket/<id_trackeo>/estado", methods=["GET"])
 def obtener_estado(id_trackeo):
 
     result = q.ejecutarSQL(q.TICKET_BY_TRACKEO, {'id_trackeo': id_trackeo})
