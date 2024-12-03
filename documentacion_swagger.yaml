@@ -1,0 +1,172 @@
+openapi: 3.0.0
+info:
+  title: API de Gestión de Productos y Tickets
+  version: 1.0.0
+  description: API para gestionar productos, tickets y estados de pedidos en un sistema de compra.
+
+servers:
+  - url: http://127.0.0.1:5001
+    description: Servidor local
+
+paths:
+  /productos:
+    get:
+      summary: Obtener productos por categoría
+      responses:
+        200:
+          description: Lista de productos organizada por categorías
+          content:
+            application/json:
+              schema:
+                type: object
+        404:
+          description: No se encontraron productos
+  /ticket:
+    get:
+      summary: Obtener estado de todos los tickets
+      responses:
+        200:
+          description: Lista de tickets con sus estados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    id_trackeo:
+                      type: string
+                    estado:
+                      type: string
+        404:
+          description: No se encontraron tickets
+    post:
+      summary: Crear un nuevo ticket
+      requestBody:
+        description: Detalles del ticket a crear
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                total:
+                  type: number
+                detallesEnvio:
+                  type: string
+                metodoPago:
+                  type: string
+                carrito:
+                  type: string
+      responses:
+        201:
+          description: Ticket creado con éxito
+          content:
+            application/json:
+              schema:
+                type: string
+        400:
+          description: Faltan datos obligatorios
+        500:
+          description: Error en el servidor
+  /ticket/{id_trackeo}:
+    get:
+      summary: Obtener un ticket por ID de trackeo
+      parameters:
+        - name: id_trackeo
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Detalles del ticket
+          content:
+            application/json:
+              schema:
+                type: object
+        404:
+          description: Ticket no encontrado
+        500:
+          description: Error en el servidor
+    put:
+      summary: Actualizar el estado de un ticket
+      parameters:
+        - name: id_trackeo
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ID de trackeo y el nuevo estado
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Estado:
+                  type: string
+      responses:
+        200:
+          description: Estado actualizado con éxito
+        400:
+          description: Faltan datos obligatorios
+        500:
+          description: Error en el servidor
+  /ticket/{id_trackeo}/estado:
+    get:
+      summary: Obtener el estado de un ticket
+      parameters:
+        - name: id_trackeo
+          in: path
+          required: true
+          description: ID único de trackeo del ticket
+          schema:
+            type: string
+      responses:
+        200:
+          description: Estado actual del ticket
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id_trackeo:
+                    type: string
+                  estado:
+                    type: string
+        404:
+          description: Ticket no encontrado
+        500:
+          description: Error en el servidor
+  /cargardatos:
+    get:
+      summary: Cargar datos iniciales de productos
+      responses:
+        200:
+          description: Datos cargados correctamente
+  /qr:
+    get:
+      summary: Obtener todos los QR generados
+      responses:
+        200:
+          description: Lista de QR con sus estados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    hash:
+                      type: string
+                    estado:
+                      type: string
+        404:
+          description: No se encontraron QR
+

@@ -1,8 +1,10 @@
 <div>
-    <header class="header">
-    <img src="{{ url_for('static', filename='/images/logo.png') }}" alt="logo">
-        <nav class="navbar">
-            <ul class="mobile-navbar">
+    <header class="header-mobile">
+        <div class="logo-narbar-mobile">
+            <img src="{{ url_for('static', filename='/images/logos/logo-nav.png') }}" alt="logo">
+        </div>
+        <nav class="navbar-mobile">
+            <ul class="elementos-navbar">
                 <li><a href="{{ url_for('home') }}"><i class="fa-solid fa-house"></i></a></li>
                 <li><a href="{{ url_for('seguimiento') }}"><i class="fa-solid fa-truck"></i></a></li>
                 <li><a href="{{ url_for('aboutUs') }}"><i class="fa-solid fa-users"></i></a></li>

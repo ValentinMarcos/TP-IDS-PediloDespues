@@ -15,15 +15,15 @@
         {% if not is_mobile %}
             {% include 'nav_desktop.html'%}
         {% endif %}
+        
+        {% if is_mobile %}
+            {% include 'nav_mobile.html'%}
+        {% endif %}
 
         {% block content %}            
         {% endblock %}
         
         {% include 'footer.html' %}
-        
-        {% if is_mobile %}
-            {% include 'nav_mobile.html'%}
-        {% endif %}
     </div>
     
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
