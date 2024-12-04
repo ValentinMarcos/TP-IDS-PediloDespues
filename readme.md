@@ -1,7 +1,7 @@
 
 # Facultad de Ingenieria Universidad de Buenos Aires
 ## Intro desarollo Software - Catedra Lanzillotta  
-## Trabajo practico Integrador (Nota : )
+## Trabajo practico Integrador (Nota : 10 )
 
 ### Integrantes del grupo
 
